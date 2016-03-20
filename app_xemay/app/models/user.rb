@@ -6,4 +6,9 @@ class User < ActiveRecord::Base
   # before_action :authenticate_user!
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  has_many :comments, dependent: :destroy
+  has_many :marks, dependent: :destroy
+  has_many :reviews, dependent: :destroy
+  has_many :reviews, dependent: :destroy
 end
