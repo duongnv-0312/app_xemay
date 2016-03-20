@@ -11,7 +11,77 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160303015037) do
+ActiveRecord::Schema.define(version: 20160419165136) do
+
+  create_table "comments", force: :cascade do |t|
+    t.string   "content",      limit: 255
+    t.datetime "start_time"
+    t.float    "rating_point", limit: 24
+    t.integer  "user_id",      limit: 4
+    t.integer  "review_id",    limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "comments", ["review_id"], name: "index_comments_on_review_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
+  create_table "coordinates", force: :cascade do |t|
+    t.float    "lat",        limit: 24
+    t.float    "lng",        limit: 24
+    t.integer  "region_id",  limit: 4
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  add_index "coordinates", ["region_id"], name: "index_coordinates_on_region_id", using: :btree
+
+  create_table "marks", force: :cascade do |t|
+    t.datetime "start_time"
+    t.integer  "user_id",    limit: 4
+    t.integer  "review_id",  limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "marks", ["review_id"], name: "index_marks_on_review_id", using: :btree
+  add_index "marks", ["user_id"], name: "index_marks_on_user_id", using: :btree
+
+  create_table "products", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.integer  "price",      limit: 4
+    t.integer  "store_id",   limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "products", ["store_id"], name: "index_products_on_store_id", using: :btree
+
+  create_table "regions", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string   "content",        limit: 255
+    t.float    "average_rating", limit: 24
+    t.float    "total_rating",   limit: 24
+    t.integer  "store_id",       limit: 4
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "reviews", ["store_id"], name: "index_reviews_on_store_id", using: :btree
+
+  create_table "stores", force: :cascade do |t|
+    t.string   "name",         limit: 255
+    t.string   "address",      limit: 255
+    t.string   "phone_number", limit: 255
+    t.string   "owner",        limit: 255
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "name",                   limit: 255
@@ -33,4 +103,11 @@ ActiveRecord::Schema.define(version: 20160303015037) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "comments", "reviews"
+  add_foreign_key "comments", "users"
+  add_foreign_key "coordinates", "regions"
+  add_foreign_key "marks", "reviews"
+  add_foreign_key "marks", "users"
+  add_foreign_key "products", "stores"
+  add_foreign_key "reviews", "stores"
 end
