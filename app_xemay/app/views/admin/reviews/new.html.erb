@@ -1,5 +1,5 @@
 <div>
-  <h2>New review</h2>
+  <h2><%= t "reviews.new_review" %></h2>
   <%= form_for @review, url: admin_reviews_path, method: :post do |f| %>
     <%= render partial: "form", locals: {f: f} %>
   <% end %>
