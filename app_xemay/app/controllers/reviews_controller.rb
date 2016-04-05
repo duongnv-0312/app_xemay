@@ -12,6 +12,7 @@ class ReviewsController < ApplicationController
 
   def new
     @review = Review.new
+    @address = @review.build_store
   end
 
   def create
