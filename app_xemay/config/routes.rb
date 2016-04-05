@@ -7,5 +7,7 @@ Rails.application.routes.draw do
   end
 
   resources :users
-  resources :reviews
+  resources :reviews do
+    resources :comments
+  end
 end
