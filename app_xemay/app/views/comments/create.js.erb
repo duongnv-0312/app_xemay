@@ -1,0 +1,6 @@
+<% if @comment.errors.any? %>
+  alert("loi roi <%= @comment.errors.full_messages %>");
+<% else %>
+  $('#comments').append('<%= j render "comment", comment: @comment %>');
+  $('#new_comment')[0].reset();
+<% end %>

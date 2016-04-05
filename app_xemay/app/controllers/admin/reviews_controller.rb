@@ -1,5 +1,6 @@
 class Admin::ReviewsController < ApplicationController
   before_action :reviews
+
   def index
   end
 
