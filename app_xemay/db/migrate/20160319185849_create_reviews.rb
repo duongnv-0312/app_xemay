@@ -4,7 +4,6 @@ class CreateReviews < ActiveRecord::Migration
       t.string :content
       t.float :average_rating
       t.float :total_rating
-      t.references :store, index: true, foreign_key: true
       t.references :user, index: true, foreign_key: true
 
       t.timestamps null: false

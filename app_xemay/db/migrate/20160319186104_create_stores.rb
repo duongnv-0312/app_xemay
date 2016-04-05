@@ -6,6 +6,8 @@ class CreateStores < ActiveRecord::Migration
       t.string :phone_number
       t.string :owner
 
+      t.references :review, index: true, foreign_key: true
+
       t.timestamps null: false
     end
   end

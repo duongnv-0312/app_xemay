@@ -67,13 +67,11 @@ ActiveRecord::Schema.define(version: 20160419165136) do
     t.string   "content",        limit: 255
     t.float    "average_rating", limit: 24
     t.float    "total_rating",   limit: 24
-    t.integer  "store_id",       limit: 4
     t.integer  "user_id",        limit: 4
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
   end
 
-  add_index "reviews", ["store_id"], name: "index_reviews_on_store_id", using: :btree
   add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
 
   create_table "stores", force: :cascade do |t|
@@ -81,9 +79,12 @@ ActiveRecord::Schema.define(version: 20160419165136) do
     t.string   "address",      limit: 255
     t.string   "phone_number", limit: 255
     t.string   "owner",        limit: 255
+    t.integer  "review_id",    limit: 4
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
   end
+
+  add_index "stores", ["review_id"], name: "index_stores_on_review_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name",                   limit: 255
@@ -111,6 +112,6 @@ ActiveRecord::Schema.define(version: 20160419165136) do
   add_foreign_key "marks", "reviews"
   add_foreign_key "marks", "users"
   add_foreign_key "products", "stores"
-  add_foreign_key "reviews", "stores"
   add_foreign_key "reviews", "users"
+  add_foreign_key "stores", "reviews"
 end
