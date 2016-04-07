@@ -1,16 +1,28 @@
-<%= @review.content %>
+<div id="review-show">
+  <div class="row border-show">
+    <div class="review-user col-md-3">
+      <%= @user.name %>
+    </div>
 
-<div id="comments">
-  <% @review.comments.each do |comment| %>
-    <%= render "comments/comment", comment: comment %>
-  <% end %>
-</div>
+    <div class="col-md-9">
+      <div class="store-name">
+        <h3>Store Name</h3>
+        <%= @store.name unless @store.nil?%>
+      </div>
 
-<div class="row"><h2>Test Bootstrap </h2>
-  <div class="col-md-4">
-    col 1
+      <div class="review-content">
+        <%= @review.content %>
+      </div>
+    </div>
+
+    <hr>
+    <div id="comments" class="comments-block">
+      <% @review.comments.each do |comment| %>
+        <%= render "comments/comment", comment: comment %>
+      <% end %>
+
+      <%= render "comments/form" %>
+    </div>
   </div>
-  <div class="col-md-4">col 2</div>
-</div>
 
-<%= render "comments/form" %>
+</div>
