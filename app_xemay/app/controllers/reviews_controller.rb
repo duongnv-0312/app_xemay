@@ -12,7 +12,7 @@ class ReviewsController < ApplicationController
 
   def new
     @review = Review.new
-    @address = @review.build_store
+    @store = @review.build_store
   end
 
   def create
@@ -26,8 +26,8 @@ class ReviewsController < ApplicationController
 
   private
   def review_params
-    params.require(:review).permit :content, :average_rating,
-      :total_rating, :user_id
+    params.require(:review).permit :content, :average_rating, :total_rating, :user_id,
+      store_attributes: [:id, :name, :address, :phone_number, :owner, :review_id]
   end
 
   def reviews

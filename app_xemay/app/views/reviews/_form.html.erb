@@ -1,10 +1,15 @@
-<div class="row">
+<div id="review-build" class="row">
   <%= render "shared/error_messages", object: @review %>
-  <div class="col-md-6">
+  <div class="col-md-6 col-md-offset-2 review-build">
     <%= f.label :content %>
-    <%= f.text_field :content , class: "form-control", required: true %>
+    <%= f.text_area :content , rows: 5, class: "form-control",
+      placeholder: :content, required: true %>
 
     <%= f.hidden_field :user_id, value: current_user.id %>
+
+    <%= f.fields_for :store do |build_store| %>
+      <%= render "store_fields", f: build_store %>
+    <% end %>
 
     <%= f.submit (f.object.new_record? ? "Create" : "Update"), class: "btn btn-primary" %>
   </div>
