@@ -14,6 +14,7 @@ class ReviewsController < ApplicationController
   def new
     @review = Review.new
     @store = @review.build_store
+    @store.images.build
   end
 
   def create
@@ -28,7 +29,8 @@ class ReviewsController < ApplicationController
   private
   def review_params
     params.require(:review).permit :content, :average_rating, :total_rating, :user_id,
-      store_attributes: [:id, :name, :address, :phone_number, :owner, :review_id]
+      store_attributes: [:id, :name, :address, :phone_number, :owner, :review_id,
+        images_attributes: [:id, :image, :caption, :store_id]]
   end
 
   def reviews
