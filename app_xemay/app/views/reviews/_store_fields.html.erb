@@ -1,9 +1,13 @@
 <p>
-  <%= f.text_field :name, class: "form-control", placeholder: :name,
-    require: true %>
+  <%= f.text_field :name, class: "form-control", require: true,
+    placeholder: :name %>
   <%= f.text_area :address, rows: 3, class: "form-control",
     placeholder: :address %>
   <%= f.telephone_field :phone_number, class: "form-control",
     placeholder: :phone_number %>
   <%= f.text_field :owner, class: "form-control", placeholder: :owner %>
+
+  <%= f.fields_for :images, html: {multipart: true} do |build_image| %>
+    <%= render "images_fields", f: build_image %>
+  <% end %>
 </p>
