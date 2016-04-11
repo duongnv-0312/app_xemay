@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160419165136) do
+ActiveRecord::Schema.define(version: 20160419165138) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "content",      limit: 255
@@ -35,6 +35,14 @@ ActiveRecord::Schema.define(version: 20160419165136) do
   end
 
   add_index "coordinates", ["region_id"], name: "index_coordinates_on_region_id", using: :btree
+
+  create_table "images", force: :cascade do |t|
+    t.string   "image",      limit: 255
+    t.string   "caption",    limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "store_id",   limit: 4
+  end
 
   create_table "marks", force: :cascade do |t|
     t.datetime "start_time"
