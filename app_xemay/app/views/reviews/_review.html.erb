@@ -1,0 +1,26 @@
+<div id="review-index">
+  <div class="row border-show">
+    <div class="review-user col-md-3">
+      <%= review.user.name %>
+    </div>
+
+    <div class="col-md-9">
+      <div class="store-name">
+        <%= review.store_name unless review.store.nil? %>
+      </div>
+    </div>
+
+    <div class="review-content">
+      <%= review.content %>
+    </div>
+
+    <div class="pull-right">
+      <i>
+        <%= review.store_address %>
+      </i><br>
+      <i>
+        <%= review.store_phone_number %>
+      </i>
+    </div>
+  </div>
+</div>
