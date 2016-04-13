@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="form-group">
+    <div class="col-md-3 col-md-offset-3">
+      <%= f.text_field :lat, class: "form-control",
+        placeholder: "Latitude" %>
+    </div>
+    <div class="col-md-3">
+      <%= f.text_field :lng, class: "form-control",
+        placeholder: "Longitude" %>
+    </div>
+  </div>
+</div>
+
+<div id="map-container">
+  <div id="map-canvas">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpjZ2NGtngZBKi2wlmzgtKioFkTbQO-qo">
+   </script>
+  </div>
+</div>

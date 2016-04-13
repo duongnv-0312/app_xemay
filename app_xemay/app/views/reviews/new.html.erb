@@ -1,5 +1,9 @@
 <div>
-  <h2><%= t "reviews.new_review" %></h2>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-4">
+      <h2><%= t "reviews.new_review" %></h2>
+    </div>
+  </div>
   <%= form_for @review do |f| %>
     <%= render partial: "form", locals: {f: f} %>
   <% end %>

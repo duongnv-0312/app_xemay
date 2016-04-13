@@ -1,16 +1,20 @@
-<div id="review-build" class="row">
+<div id="review-build">
   <%= render "shared/error_messages", object: @review %>
-  <div class="col-md-6 col-md-offset-2 review-build">
+  <div class="review-build">
     <%= f.fields_for :store do |build_store| %>
       <%= render "store_fields", f: build_store %>
     <% end %>
+    <div class="row">
+      <div class="form-group">
+        <div class="col-md-6 col-md-offset-3">
+          <%= f.text_area :content , rows: 5, class: "form-control",
+            placeholder: :content, required: true %>
 
-    <%= f.label :content %>
-    <%= f.text_area :content , rows: 5, class: "form-control",
-      placeholder: :content, required: true %>
+          <%= f.hidden_field :user_id, value: current_user.id %>
 
-    <%= f.hidden_field :user_id, value: current_user.id %>
-
-    <%= f.submit (f.object.new_record? ? "Create" : "Update"), class: "btn btn-primary" %>
+          <%= f.submit (f.object.new_record? ? "Create" : "Update"), class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
