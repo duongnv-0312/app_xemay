@@ -4,6 +4,7 @@ class CreateCoordinates < ActiveRecord::Migration
       t.float :lat
       t.float :lng
       t.references :region, index: true, foreign_key: true
+      t.references :store, index: true, foreign_key: true
 
       t.timestamps null: false
     end

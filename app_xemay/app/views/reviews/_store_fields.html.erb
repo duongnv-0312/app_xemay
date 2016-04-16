@@ -12,11 +12,10 @@
       <%= f.fields_for :images, html: {multipart: true} do |build_image| %>
         <%= render "images_fields", f: build_image %>
       <% end %>
-
     </div>
   </div>
 </div>
 
-<%= f.fields_for :coodinate do |build_coodinate| %>
+<%= f.fields_for :coordinate do |build_coodinate| %>
   <%= render "coordinate_fields", f: build_coodinate %>
 <% end %>

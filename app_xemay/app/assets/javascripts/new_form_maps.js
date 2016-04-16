@@ -12,7 +12,7 @@ $(document).on("ready", function() {
       mapTypeId: google.maps.MapTypeId.ROADMAP
     }
 
-    map = new google.maps.Map(document.getElementById("map-canvas"), options);
+    map = new google.maps.Map(document.getElementById("new-map-canvas"), options);
 
     google.maps.event.addListener(map, "click", function(e) {
       if(markersArray.length !== 0) {
@@ -46,6 +46,6 @@ function markerClick(map, lat, lng, markersArray) {
 }
 
 function getValueCoordinate(lat, lng) {
-  document.getElementById("review_store_attributes_coodinate_lng").value = lng;
-  document.getElementById("review_store_attributes_coodinate_lat").value = lat;
+  document.getElementById("review_store_attributes_coordinate_attributes_lng").value = lng;
+  document.getElementById("review_store_attributes_coordinate_attributes_lat").value = lat;
 }
