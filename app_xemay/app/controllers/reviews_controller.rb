@@ -8,13 +8,17 @@ class ReviewsController < ApplicationController
 
   def show
     @user = @review.user
+    @store = @review.store
     @comment = @review.comments.build
+    @lat = @review.store.coordinate_lat
+    @lng = @review.store.coordinate_lng
   end
 
   def new
     @review = Review.new
     @store = @review.build_store
     @store.images.build
+    @store.build_coordinate
   end
 
   def create
@@ -31,7 +35,7 @@ class ReviewsController < ApplicationController
     params.require(:review).permit :content, :average_rating, :total_rating, :user_id,
       store_attributes: [:id, :name, :address, :phone_number, :owner, :review_id,
         images_attributes: [:id, :image, :caption, :store_id],
-        coordinate_attributes: [:id, :lat, :lng, :region_id]]
+        coordinate_attributes: [:id, :lat, :lng, :store_id, :region_id]]
   end
 
   def reviews

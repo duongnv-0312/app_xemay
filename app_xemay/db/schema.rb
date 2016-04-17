@@ -30,11 +30,13 @@ ActiveRecord::Schema.define(version: 20160419165138) do
     t.float    "lat",        limit: 24
     t.float    "lng",        limit: 24
     t.integer  "region_id",  limit: 4
+    t.integer  "store_id",   limit: 4
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
   end
 
   add_index "coordinates", ["region_id"], name: "index_coordinates_on_region_id", using: :btree
+  add_index "coordinates", ["store_id"], name: "index_coordinates_on_store_id", using: :btree
 
   create_table "images", force: :cascade do |t|
     t.string   "image",      limit: 255
@@ -72,12 +74,12 @@ ActiveRecord::Schema.define(version: 20160419165138) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.string   "content",        limit: 255
+    t.text     "content",        limit: 65535
     t.float    "average_rating", limit: 24
     t.float    "total_rating",   limit: 24
     t.integer  "user_id",        limit: 4
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
@@ -117,6 +119,7 @@ ActiveRecord::Schema.define(version: 20160419165138) do
   add_foreign_key "comments", "reviews"
   add_foreign_key "comments", "users"
   add_foreign_key "coordinates", "regions"
+  add_foreign_key "coordinates", "stores"
   add_foreign_key "marks", "reviews"
   add_foreign_key "marks", "users"
   add_foreign_key "products", "stores"

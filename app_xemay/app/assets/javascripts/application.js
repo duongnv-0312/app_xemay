@@ -16,3 +16,4 @@
 //= require_tree .
 //= require bootstrap-sprockets
 //= require new_form_maps
+//= require show_on_map
