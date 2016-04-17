@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :reviews
+  before_action :reviews, only: :index
   before_action :find_review, only: [:show, :edit, :update]
   load_resource
 

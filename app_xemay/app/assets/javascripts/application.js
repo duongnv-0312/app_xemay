@@ -17,3 +17,4 @@
 //= require bootstrap-sprockets
 //= require new_form_maps
 //= require show_on_map
+//= require index_maps
