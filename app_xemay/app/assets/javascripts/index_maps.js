@@ -13,7 +13,10 @@ function index_maps() {
   console.log(reviews);
   var markersArray = [];
   var infowindows = [];
+
   map = new google.maps.Map(document.getElementById("map-index-reviews"), options);
+  infoGeolocation = new google.maps.InfoWindow({maxWidth: 200});
+  geoMylocation(map, infoGeolocation);
 
   if(stores < 1) {
     console.log("No stores");
@@ -42,4 +45,47 @@ function bindInfoWindow(marker, map, infowindows, markerContent) {
     infowindows.setContent(markerContent);
     infowindows.open(map, this);
   });
+}
+
+function geoMylocation(map, infoGeolocation) {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+      var image = {
+        url: "/assets/geolocation-icon.png",
+        size: new google.maps.Size(40, 40),
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(0, 25),
+        scaledSize: new google.maps.Size(40, 40)
+      };
+      var markerGeolocation = new google.maps.Marker({
+        position: pos,
+        icon: image,
+        map: map
+      });
+
+      markerGeolocation.setMap(map);
+      markerGeolocation.addListener("click", function() {
+        infoGeolocation.setContent("Your location");
+        infoGeolocation.open(map, this);
+      });
+      map.setCenter(pos);
+    }, function() {
+      handleLocationError(true, infoGeolocation, map.getCenter());
+    });
+  }
+  else {
+    // Browser doesn't support Geolocation
+    handleLocationError(false, infoGeolocation, map.getCenter());
+  }
+}
+
+function handleLocationError(browserHasGeolocation, infoGeolocation, pos) {
+  infoGeolocation.setPosition(pos);
+  infoGeolocation.setContent(browserHasGeolocation ?
+    "Error: The Geolocation service failed." :
+    "Error: Your browser doesn't support geolocation.");
 }
