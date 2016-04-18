@@ -9,6 +9,10 @@
     <div id="map-index-reviews" data-coordinates="<%= @coordinates.to_json%>"
       data-stores="<%= @stores.to_json %>"
       data-reviews="<%= @reviews.to_json %>">
+      <div id="geolocation-button">
+        <%= link_to image_tag("geolocation-button.png", size: "10x10",
+          alt: "Your location"), class: "geolocation-link pull-right" %>
+      </div>
     </div>
   </div>
 </body>
