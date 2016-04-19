@@ -10,7 +10,6 @@ function index_maps() {
   var coordinates = $.parseJSON($("#map-index-reviews").attr("data-coordinates"));
   var stores = $.parseJSON($("#map-index-reviews").attr("data-stores"));
   var reviews = $.parseJSON($("#map-index-reviews").attr("data-reviews"));
-  console.log(reviews);
   var markersArray = [];
   var infowindows = [];
 
@@ -61,24 +60,24 @@ function geoMylocation(map, infoGeolocation) {
         anchor: new google.maps.Point(0, 25),
         scaledSize: new google.maps.Size(40, 40)
       };
-      var markerGeolocation = new google.maps.Marker({
+      var posGeolocation = {
         position: pos,
         icon: image,
         map: map
-      });
+      };
 
-      markerGeolocation.setMap(map);
-      markerGeolocation.addListener("click", function() {
-        infoGeolocation.setContent("Your location");
-        infoGeolocation.open(map, this);
-      });
-      map.setCenter(pos);
+      var centerControlDiv = document.createElement("div");
+      var centerControl = new CenterControl(centerControlDiv, map, pos, posGeolocation);
+
+      centerControlDiv.index = 1;
+      map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(centerControlDiv);
+
+
     }, function() {
       handleLocationError(true, infoGeolocation, map.getCenter());
     });
   }
   else {
-    // Browser doesn't support Geolocation
     handleLocationError(false, infoGeolocation, map.getCenter());
   }
 }
@@ -87,5 +86,42 @@ function handleLocationError(browserHasGeolocation, infoGeolocation, pos) {
   infoGeolocation.setPosition(pos);
   infoGeolocation.setContent(browserHasGeolocation ?
     "Error: The Geolocation service failed." :
-    "Error: Your browser doesn't support geolocation.");
+    "Error: Your browser does not support geolocation.");
+}
+
+function CenterControl(controlDiv, map, pos, posGeolocation) {
+  var controlUI = document.createElement("button");
+  controlUI.style.backgroundColor = "#fff";
+  controlUI.style.border = "none";
+  controlUI.style.outline = "none";
+  controlUI.style.width = "28px";
+  controlUI.style.height = "28px";
+  controlUI.style.borderRadius = "2px";
+  controlUI.style.boxShadow = "0 1px 4px rgba(0,0,0,0.3)";
+  controlUI.style.cursor = "pointer";
+  controlUI.style.marginRight = "10px";
+  controlUI.style.padding = "0";
+  controlUI.title = "Your Location";
+
+  controlDiv.appendChild(controlUI);
+
+  var secondChild = document.createElement("div");
+  secondChild.style.margin = "5px";
+  secondChild.style.width = "18px";
+  secondChild.style.height = "18px";
+  secondChild.style.backgroundImage = "url('https://maps.gstatic.com/tactile/mylocation/mylocation-sprite-2x.png')";
+  secondChild.style.backgroundSize = "180px 18px";
+  secondChild.style.backgroundPosition = "0 0";
+  secondChild.style.backgroundRepeat = "no-repeat";
+  controlUI.appendChild(secondChild);
+
+  controlUI.addEventListener("click", function() {
+    map.setCenter(pos);
+    var markerGeolocation = new google.maps.Marker(posGeolocation);
+    markerGeolocation.setMap(map);
+    markerGeolocation.addListener("click", function() {
+      infoGeolocation.setContent("Location found!");
+      infoGeolocation.open(map, this);
+    });
+  });
 }
