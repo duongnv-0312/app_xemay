@@ -11,4 +11,12 @@ class User < ActiveRecord::Base
   has_many :marks, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_many :reviews, dependent: :destroy
+
+  def is_admin?
+    self.role == 1
+  end
+
+  def is_normal_user?
+    self.role == 0
+  end
 end
