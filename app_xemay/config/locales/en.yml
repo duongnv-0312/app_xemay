@@ -24,6 +24,8 @@ en:
   staticpages:
     profile: "Profile"
     logout: "Log Out"
+    log_in: "Log In"
+    sign_up: "Sign Up"
   reviews:
     new_review: "New review"
 

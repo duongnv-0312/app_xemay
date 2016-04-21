@@ -13,10 +13,10 @@ class User < ActiveRecord::Base
   has_many :reviews, dependent: :destroy
 
   def is_admin?
-    self.role == 1
+    self.role == "admin"
   end
 
   def is_normal_user?
-    self.role == 0
+    self.role == "normal"
   end
 end

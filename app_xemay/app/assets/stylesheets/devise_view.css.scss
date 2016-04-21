@@ -1,0 +1,27 @@
+.label-devise {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.actions-devise {
+  margin: auto;
+  width: 12%;
+
+  input {
+    font-size: 120%;
+  }
+}
+
+.actions-render {
+  a {
+    font-size: 120%;
+  }
+
+  a:visited {
+    color: #337ab7;
+  }
+
+  a:hover {
+    background-color: transparent;
+  }
+}
