@@ -12,6 +12,7 @@ gem "settingslogic"
 gem "bootstrap-sass"
 gem "bootstrap"
 gem "cancancan"
+gem "ratyrate"
 gem "carrierwave"
 gem "rmagick"
 gem "sdoc", "~> 0.4.0", group: :doc

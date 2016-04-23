@@ -12,9 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap-sprockets
+//= require index_maps
+//= require jquery.raty
+//= require new_form_maps
+//= require ratyrate
+//= require show_on_map
 //= require turbolinks
 //= require_tree .
-//= require bootstrap-sprockets
-//= require new_form_maps
-//= require show_on_map
-//= require index_maps
