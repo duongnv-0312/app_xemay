@@ -1,4 +1,6 @@
 class Store < ActiveRecord::Base
+  ratyrate_rateable "attitude", "price", "specialize"
+
   belongs_to :review
 
   has_one :coordinate, dependent: :destroy

@@ -28,5 +28,11 @@ en:
     sign_up: "Sign Up"
   reviews:
     new_review: "New review"
+  rate:
+    attitude: "Attitude"
+    price: "Price"
+    specialize: "Specialize"
+    cancel_hint: "Cancel this rating!"
+    rate_now: "Rate now"
 
 
