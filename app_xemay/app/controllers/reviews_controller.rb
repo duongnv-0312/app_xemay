@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :reviews, only: :index
   before_action :find_review, only: [:show, :edit, :update]
-  load_resource
+  load_and_authorize_resource :store, :coordinate, only: [:create]
 
   def index
   end
