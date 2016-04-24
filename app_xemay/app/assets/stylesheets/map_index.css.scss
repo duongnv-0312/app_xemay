@@ -8,3 +8,26 @@
   min-height: 600px;
   width: 100%;
 }
+
+#radiusControlDiv {
+  margin: 10px;
+  border: 1px;
+  border-radius: 3px;
+  box-shadow: 7px 3px #2a5ee2;
+  width: 80px;
+  height: 30px;
+  padding: 2px 5px;
+  z-index: 10px;
+}
+
+#numberInput {
+  font-family: Roboto,Arial,sans-serif;
+  width: 80px;
+  background-color: #fff;
+  color: #1c43b9;
+  border-radius: 3px;
+  text-align: right;
+  font-size: 16px !important;
+  font-weight: 500;
+  padding: 2px 2px;
+}

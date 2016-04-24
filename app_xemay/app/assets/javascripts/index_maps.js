@@ -16,6 +16,8 @@ function index_maps() {
   map = new google.maps.Map(document.getElementById("map-index-reviews"), options);
   infoGeolocation = new google.maps.InfoWindow({maxWidth: 200});
   geoMylocation(map, infoGeolocation);
+  radiusControl(map);
+  searchByRadius(map);
 
   if(stores < 1) {
     console.log("No stores");
@@ -44,6 +46,33 @@ function bindInfoWindow(marker, map, infowindows, markerContent) {
     infowindows.setContent(markerContent);
     infowindows.open(map, this);
   });
+}
+
+function searchByRadius(map) {
+  google.maps.event.addListener(map, "click", function(e) {
+    var lat = e.latLng.lat();
+    var lng = e.latLng.lng();
+    var pos = new google.maps.LatLng(lat, lng);
+    var radius = document.getElementById("numberInput").value;
+    console.log(radius);
+  });
+
+  drawCircle(map, pos, radius);
+}
+
+function radiusControl(map) {
+  var radiusControlDiv = document.createElement("div");
+  radiusControlDiv.id = "radiusControlDiv";
+  radiusControlDiv.index = 1;
+  map.controls[google.maps.ControlPosition.TOP_LEFT].push(radiusControlDiv);
+
+  var numberInput = document.createElement("input");
+  numberInput.id = "numberInput";
+  numberInput.type = "number";
+  numberInput.min = "0";
+  numberInput.max = "10000";
+  numberInput.placeholder = "..(met)";
+  radiusControlDiv.appendChild(numberInput);
 }
 
 function geoMylocation(map, infoGeolocation) {
@@ -119,9 +148,23 @@ function CenterControl(controlDiv, map, pos, posGeolocation) {
     map.setCenter(pos);
     var markerGeolocation = new google.maps.Marker(posGeolocation);
     markerGeolocation.setMap(map);
+    drawCircle(map, pos);
     markerGeolocation.addListener("click", function() {
       infoGeolocation.setContent("Location found!");
       infoGeolocation.open(map, this);
     });
+  });
+}
+
+function drawCircle(map, pos, radius) {
+  var  searchCircle = new google.maps.Circle({
+    strokeColor: "#2680FA",
+    strokeOpacity: 0.8,
+    strokeWeight: 2,
+    fillColor: "#2680FA",
+    fillOpacity: 0.35,
+    map: map,
+    center: pos,
+    radius: radius,
   });
 }
