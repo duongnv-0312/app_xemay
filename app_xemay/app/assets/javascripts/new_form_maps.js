@@ -42,6 +42,6 @@ function markerClick(map, lat, lng, markersArray) {
 }
 
 function getValueCoordinate(lat, lng) {
-  document.getElementById("review_store_attributes_coordinate_attributes_lng").value = lng;
-  document.getElementById("review_store_attributes_coordinate_attributes_lat").value = lat;
+  document.getElementById("review_store_attributes_coordinate_attributes_lng").value = lng.toFixed(15);
+  document.getElementById("review_store_attributes_coordinate_attributes_lat").value = lat.toFixed(15);
 }

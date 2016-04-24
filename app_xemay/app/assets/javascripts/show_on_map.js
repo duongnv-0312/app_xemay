@@ -1,8 +1,8 @@
 var map;
 
 function show_on_map() {
-  var lat = parseInt(document.getElementById("coordinate_lat").value);
-  var lng = parseInt(document.getElementById("coordinate_lng").value);
+  var lat = parseFloat(document.getElementById("coordinate_lat").value);
+  var lng = parseFloat(document.getElementById("coordinate_lng").value);
   var review_content = document.getElementById("review_content").value;
   var store_phone_number = document.getElementById("store_phone_number").value;
   var store_name = document.getElementById("store_name").value;

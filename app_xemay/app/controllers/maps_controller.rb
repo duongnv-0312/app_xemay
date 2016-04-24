@@ -8,6 +8,6 @@ class MapsController < ApplicationController
   def reviews
     @coordinates = Coordinate.all
     @stores = @coordinates.map &:store
-    @reviews = @stores.map &:review
+    @reviews = @stores.compact.map &:review
   end
 end

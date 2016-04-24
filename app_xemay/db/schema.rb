@@ -36,12 +36,12 @@ ActiveRecord::Schema.define(version: 20160422205225) do
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "coordinates", force: :cascade do |t|
-    t.float    "lat",        limit: 24
-    t.float    "lng",        limit: 24
+    t.decimal  "lat",                  precision: 32, scale: 14
+    t.decimal  "lng",                  precision: 32, scale: 14
     t.integer  "region_id",  limit: 4
     t.integer  "store_id",   limit: 4
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
   end
 
   add_index "coordinates", ["region_id"], name: "index_coordinates_on_region_id", using: :btree
