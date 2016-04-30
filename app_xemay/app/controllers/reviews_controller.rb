@@ -35,7 +35,8 @@ class ReviewsController < ApplicationController
     params.require(:review).permit :content, :average_rating, :total_rating, :user_id,
       store_attributes: [:id, :name, :address, :phone_number, :owner, :review_id,
         images_attributes: [:id, :image, :caption, :store_id],
-        coordinate_attributes: [:id, :lat, :lng, :store_id, :region_id]]
+        coordinate_attributes: [:id, :lat, :lng, :store_id, :region_id],
+        products_attributes: [:id, :name, :price, :store_id]]
   end
 
   def reviews
