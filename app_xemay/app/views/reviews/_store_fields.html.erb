@@ -1,21 +1,19 @@
-<div class=row>
-  <div class="form-group">
-    <div class="col-md-6 col-md-offset-3">
-      <%= f.text_field :name, class: "form-control", require: true,
-        placeholder: :name %>
-      <%= f.text_area :address, rows: 3, class: "form-control",
-        placeholder: :address %>
-      <%= f.telephone_field :phone_number, class: "form-control",
-        placeholder: :phone_number %>
-      <%= f.text_field :owner, class: "form-control", placeholder: :owner %>
+<%= f.text_field :name, class: "form-control", require: true,
+  placeholder: :name %>
+<%= f.text_area :address, rows: 3, class: "form-control",
+  placeholder: :address %>
+<%= f.telephone_field :phone_number, class: "form-control",
+  placeholder: :phone_number %>
+<%= f.text_field :owner, class: "form-control", placeholder: :owner %>
 
-      <%= f.fields_for :images, html: {multipart: true} do |build_image| %>
-        <%= render "images_fields", f: build_image %>
-      <% end %>
-    </div>
-  </div>
-</div>
-
-<%= f.fields_for :coordinate do |build_coodinate| %>
-  <%= render "coordinate_fields", f: build_coodinate %>
+<%= f.fields_for :images, html: {multipart: true} do |build_image| %>
+  <%= render "images_fields", f: build_image %>
 <% end %>
+
+<h3><%= t "reviews.products" %></h3>
+<div>
+  <%= f.fields_for :products do |build_product| %>
+    <%= render "product_fields", f: build_product %>
+  <% end %>
+  <%= link_to_add_fields t("reviews.add_products"), f, :products %>
+</div>
