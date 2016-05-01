@@ -3,6 +3,7 @@ class CreateUsers < ActiveRecord::Migration
     create_table :users do |t|
       t.string :name
       t.string :password
+      t.string :avatar, default: "profile.png"
       t.string :role, default: "normal"
 
       t.timestamps null: false

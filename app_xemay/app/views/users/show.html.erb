@@ -1,14 +1,23 @@
 <p id="notice"><%= notice %></p>
+<div id="user-profile">
+  <div class="row">
+    <div class="form-group">
+      <div class="col-md-2 col-md-offset-1">
+        <%= image_tag @user.avatar, class: "user-avatar" %>
+      </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+      <div class="col-md-8">
+        <p>
+          <strong>Name:</strong>
+          <%= @user.name %>
+        </p>
 
-<p>
-  <strong>Password:</strong>
-  <%= @user.password %>
-</p>
+        <div class="user-action">
+          <%= link_to 'Edit', edit_user_path(@user) %>
+          <%= link_to 'Back', users_path %>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+</div>

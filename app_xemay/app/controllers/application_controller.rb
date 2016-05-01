@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
 
   include ApplicationHelper
@@ -14,6 +15,10 @@ class ApplicationController < ActionController::Base
   end
 
   protected
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_up) << :name
+  end
+
   def current_ability
     @current_ability ||= Ability.new current_user
   end
