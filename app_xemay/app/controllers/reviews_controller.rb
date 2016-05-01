@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :reviews, only: :index
   before_action :find_review, only: [:show, :edit, :update]
-  load_and_authorize_resource :store, :coordinate, only: [:create]
+  load_and_authorize_resource :store, :coordinate, :product, only: [:new, :create]
 
   def index
   end
@@ -9,9 +9,11 @@ class ReviewsController < ApplicationController
   def show
     @user = @review.user
     @store = @review.store
+    @products = @store.products
+    @images = @store.images
     @comment = @review.comments.build
-    @lat = @review.store.coordinate_lat
-    @lng = @review.store.coordinate_lng
+    @lat = @store.coordinate_lat
+    @lng = @store.coordinate_lng
   end
 
   def new
@@ -19,6 +21,7 @@ class ReviewsController < ApplicationController
     @store = @review.build_store
     @store.images.build
     @store.build_coordinate
+    @store.products.build
   end
 
   def create
