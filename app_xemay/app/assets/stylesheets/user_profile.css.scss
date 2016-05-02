@@ -2,8 +2,8 @@
   margin-top: 50px;
   font-size: 120%;
   .user-avatar {
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
   }
 
   .user-action {
@@ -13,5 +13,9 @@
     a:visited {
       color: #337ab7;
     }
+  }
+
+  .user-reviews {
+    margin-top: 20px;
   }
 }

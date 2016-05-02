@@ -2,22 +2,28 @@
 <div id="user-profile">
   <div class="row">
     <div class="form-group">
-      <div class="col-md-2 col-md-offset-1">
+      <div class="col-md-1 col-md-offset-1">
         <%= image_tag @user.avatar, class: "user-avatar" %>
       </div>
 
       <div class="col-md-8">
-        <p>
-          <strong>Name:</strong>
-          <%= @user.name %>
-        </p>
+        <h2><strong><%= @user.name %></strong></h2>
 
         <div class="user-action">
-          <%= link_to 'Edit', edit_user_path(@user) %>
-          <%= link_to 'Back', users_path %>
+          <%= link_to t("profile.edit"), edit_user_path(@user) %>
+          <%= link_to t("profile.home"), root_path %>
         </div>
       </div>
     </div>
   </div>
 
+  <div class="row">
+    <div class="form-group">
+      <div class="col-md-10">
+        <% unless @reviews.empty? %>
+          <%= render @reviews %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

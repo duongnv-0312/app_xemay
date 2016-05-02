@@ -21,6 +21,10 @@
 
 en:
   name_system: "Xe may"
+  profile:
+    edit: "Edit"
+    back: "Back"
+    home: "Home"
   staticpages:
     profile: "Profile"
     logout: "Log Out"

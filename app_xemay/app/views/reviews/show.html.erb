@@ -3,14 +3,18 @@
 
   <div class="row border-show">
     <div class="form-group group-show-content">
-      <div class="review-user col-md-3">
-        <%= @user.name %>
+      <div class="review-user col-md-2">
+        <div>
+          <%= link_to @user.name, user_path(@user) %>
+        </div>
+        <div class="review-avatar">
+          <%= image_tag @user.avatar %>
+        </div>
       </div>
 
       <div class="col-md-9">
         <div class="store-name">
-          <h3>Store Name</h3>
-          <%= @store.name unless @store.nil?%>
+          <h3><%= @store.name unless @store.nil?%></h3>
         </div>
 
         <div class="review-content">
