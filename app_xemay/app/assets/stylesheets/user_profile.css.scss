@@ -6,12 +6,13 @@
     height: 100px;
   }
 
+  a:visited {
+    color: #337ab7;
+  }
+
   .user-action {
     a {
       margin-right: 20px;
-    }
-    a:visited {
-      color: #337ab7;
     }
   }
 

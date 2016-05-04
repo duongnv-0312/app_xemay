@@ -1,9 +1,9 @@
 <div id="review-index">
   <div class="row border-show">
     <div class="review-user col-md-2">
-      <p><%= review.user.name %></p>
+      <p><%= link_to review.user.name, user_path(review.user) %></p>
       <div class="review-avatar">
-        <%= image_tag review.user.avatar %>
+        <%= link_to image_tag(review.user.avatar), user_path(review.user) %>
       </div>
     </div>
 

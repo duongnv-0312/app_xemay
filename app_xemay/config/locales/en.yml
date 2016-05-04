@@ -25,6 +25,10 @@ en:
     edit: "Edit"
     back: "Back"
     home: "Home"
+    new_review: "New review"
+    current_waiting: "Currently waiting confirmation for"
+    cancel_account: "Cancel my account"
+    unhappy: "Unhappy"
   staticpages:
     profile: "Profile"
     logout: "Log Out"
