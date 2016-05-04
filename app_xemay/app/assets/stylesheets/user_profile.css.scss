@@ -1,0 +1,22 @@
+#user-profile {
+  margin-top: 50px;
+  font-size: 120%;
+  .user-avatar {
+    width: 100px;
+    height: 100px;
+  }
+
+  a:visited {
+    color: #337ab7;
+  }
+
+  .user-action {
+    a {
+      margin-right: 20px;
+    }
+  }
+
+  .user-reviews {
+    margin-top: 20px;
+  }
+}

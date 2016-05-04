@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   load_and_authorize_resource except: :index
 
   def show
+    @reviews = current_user.reviews
   end
 
   def new
@@ -49,6 +50,6 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:name, :password)
+      params.require(:user).permit :email, :name, :avatar, :password
     end
 end
