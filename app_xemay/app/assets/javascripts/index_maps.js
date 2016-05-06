@@ -1,5 +1,9 @@
 var map;
 var currentPosition;
+var service;
+var circles;
+var markersArray = [];
+var infowindows = [];
 
 function index_maps() {
   var options = {
@@ -10,33 +14,78 @@ function index_maps() {
   var coordinates = $.parseJSON($("#map-index-reviews").attr("data-coordinates"));
   var stores = $.parseJSON($("#map-index-reviews").attr("data-stores"));
   var reviews = $.parseJSON($("#map-index-reviews").attr("data-reviews"));
-  var markersArray = [];
-  var infowindows = [];
+  // toJsonData(coordinates, stores, reviews);
 
   map = new google.maps.Map(document.getElementById("map-index-reviews"), options);
   infoGeolocation = new google.maps.InfoWindow({maxWidth: 200});
   geoMylocation(map, infoGeolocation);
+  searchByRadius();
+}
 
-  if(stores < 1) {
-    console.log("No stores");
-  }
-  else {
-    for (i = 0; i < coordinates.length; i++) {
-      markersArray[i] = new google.maps.Marker({
-        position: new google.maps.LatLng(coordinates[i].lat, coordinates[i].lng),
-        map: map
-      });
-      markerContent = "Lat: " + coordinates[i].lat +
-                      "<br>Lng: " + coordinates[i].lng +"";
+function searchByRadius() {
+  var coordinates = $.parseJSON($("#map-index-reviews").attr("data-coordinates"));
+  var stores = $.parseJSON($("#map-index-reviews").attr("data-stores"));
+  var reviews = $.parseJSON($("#map-index-reviews").attr("data-reviews"));
 
-      markersArray[i].setMap(map);
-      infowindows [i] = new google.maps.InfoWindow({
-        maxWidth: 300
-      });
-
-      bindInfoWindow(markersArray[i], map, infowindows[i], markerContent);
+  google.maps.event.addListener(map, "click", function(e) {
+    if(markersArray.length > 0) {
+      clearMarkers(markersArray);
     }
+
+    if(circles !== undefined) {
+      circles.setMap(null);
+    }
+
+    var lat = e.latLng.lat();
+    var lng = e.latLng.lng();
+    var orgLocation = new google.maps.LatLng(lat, lng);
+    var rad = 5000;
+    drawCircle(orgLocation, rad);
+
+    if(coordinates.length < 1) {
+      console.log("No stores");
+    }
+    else {
+      for(var i = 0; i < coordinates.length; i++) {
+        var desLocation = new google.maps.LatLng(coordinates[i].lat, coordinates[i].lng);
+
+        if (google.maps.geometry.spherical.computeDistanceBetween(orgLocation, desLocation) < rad) {
+          markersArray[i] = new google.maps.Marker({
+            position: desLocation,
+            map: map
+          });
+          markerContent = "Lat: " + coordinates[i].lat +
+                          "<br>Lng: " + coordinates[i].lng +"";
+
+          markersArray[i].setMap(map);
+          infowindows [i] = new google.maps.InfoWindow({
+            maxWidth: 300,
+          });
+
+          bindInfoWindow(markersArray[i], map, infowindows[i], markerContent);
+        }
+      }
+    }
+  });
+}
+
+function clearMarkers(markersArray) {
+  for (var i = 0; i < markersArray.length; i++) {
+    markersArray[i].setMap(null);
   }
+}
+
+function drawCircle(orgLocation, rad) {
+  circles = new google.maps.Circle({
+    strokeColor: "#2680FA",
+    strokeOpacity: 0.8,
+    strokeWeight: 2,
+    fillColor: "#2680FA",
+    fillOpacity: 0.35,
+    map: map,
+    center: orgLocation,
+    radius: rad,
+  });
 }
 
 function bindInfoWindow(marker, map, infowindows, markerContent) {
@@ -44,6 +93,21 @@ function bindInfoWindow(marker, map, infowindows, markerContent) {
     infowindows.setContent(markerContent);
     infowindows.open(map, this);
   });
+}
+
+function radiusControl(map) {
+  var radiusControlDiv = document.createElement("div");
+  radiusControlDiv.id = "radiusControlDiv";
+  radiusControlDiv.index = 1;
+  map.controls[google.maps.ControlPosition.TOP_LEFT].push(radiusControlDiv);
+
+  var numberInput = document.createElement("input");
+  numberInput.id = "numberInput";
+  numberInput.type = "number";
+  numberInput.min = "0";
+  numberInput.max = "10000";
+  numberInput.placeholder = "..(met)";
+  radiusControlDiv.appendChild(numberInput);
 }
 
 function geoMylocation(map, infoGeolocation) {
@@ -119,6 +183,7 @@ function CenterControl(controlDiv, map, pos, posGeolocation) {
     map.setCenter(pos);
     var markerGeolocation = new google.maps.Marker(posGeolocation);
     markerGeolocation.setMap(map);
+    drawCircle(map, pos);
     markerGeolocation.addListener("click", function() {
       infoGeolocation.setContent("Location found!");
       infoGeolocation.open(map, this);
