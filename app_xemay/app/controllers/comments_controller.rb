@@ -10,6 +10,6 @@ class CommentsController < ApplicationController
   private
   def comment_params
     params.require(:comment).permit :content, :start_time,
-      :rating_point, :user_id, :review_id
+      :user_id, :review_id
   end
 end

@@ -43,5 +43,5 @@ en:
     specialize: "Specialize"
     cancel_hint: "Cancel this rating!"
     rate_now: "Rate now"
-
-
+    average_rating: "Average rating"
+    total_rater: "Total rater"

@@ -3,7 +3,6 @@ class CreateComments < ActiveRecord::Migration
     create_table :comments do |t|
       t.string :content
       t.datetime :start_time
-      t.float :rating_point
       t.references :user, index: true, foreign_key: true
       t.references :review, index: true, foreign_key: true
 

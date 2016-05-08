@@ -14,6 +14,11 @@ class ReviewsController < ApplicationController
     @comment = @review.comments.build
     @lat = @store.coordinate_lat
     @lng = @store.coordinate_lng
+
+    if @store.average("quality")
+      @average_rating = @store.average("quality").avg
+      @total_rater = @store.rates("quality").count
+    end
   end
 
   def new
@@ -35,7 +40,7 @@ class ReviewsController < ApplicationController
 
   private
   def review_params
-    params.require(:review).permit :content, :average_rating, :total_rating, :user_id,
+    params.require(:review).permit :content, :user_id,
       store_attributes: [:id, :name, :address, :phone_number, :owner, :review_id,
         images_attributes: [:id, :image, :caption, :store_id],
         coordinate_attributes: [:id, :lat, :lng, :store_id, :region_id],

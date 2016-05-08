@@ -1,5 +1,5 @@
 class Store < ActiveRecord::Base
-  ratyrate_rateable "attitude", "price", "specialize"
+  ratyrate_rateable "quality"
 
   belongs_to :review
 
@@ -7,6 +7,7 @@ class Store < ActiveRecord::Base
 
   has_many :products, dependent: :destroy
   has_many :images, dependent: :destroy
+  has_many :ratings, dependent: :destroy
 
   validates :name, presence: true
 
