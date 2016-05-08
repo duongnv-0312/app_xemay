@@ -16,5 +16,31 @@ namespace :db do
     30.times do
       Fabricate :user
     end
+
+    puts "Creating Review"
+    30.times do
+      Fabricate :review
+    end
+
+    puts "Creating Store"
+    Review.all.each do |review|
+      Fabricate :store, review_id: review.id
+    end
+
+    puts "Creating Region"
+    ["Hà Nội", "Vĩnh Phúc", "Hưng Yên", "Hà Nam"].each do |name|
+      Fabricate :region, name: name
+    end
+
+    puts "Creating Image, Coordinate, Product"
+    Store.all.each do |store|
+      Fabricate :coordinate, store_id: store.id
+      2.times do
+        Fabricate :image, store_id: store.id
+      end
+      5.times do
+        Fabricate :product, store_id: store.id
+      end
+    end
   end
 end
