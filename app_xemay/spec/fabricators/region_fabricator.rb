@@ -1,0 +1,2 @@
+Fabricator(:region) do
+end
