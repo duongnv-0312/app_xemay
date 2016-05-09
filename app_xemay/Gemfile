@@ -13,6 +13,7 @@ gem "bootstrap-sass"
 gem "cancancan"
 gem "ratyrate"
 gem "carrierwave"
+gem "lazyload-rails"
 gem "rmagick"
 gem "sdoc", "~> 0.4.0", group: :doc
 
