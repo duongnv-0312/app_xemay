@@ -3,6 +3,11 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!, except: [:index, :show]
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
+  before_filter :set_global_search_variable
+
+  def set_global_search_variable
+    @q = Review.ransack params[:q]
+  end
 
   include ApplicationHelper
 

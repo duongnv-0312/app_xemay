@@ -3,7 +3,13 @@ class ReviewsController < ApplicationController
   before_action :find_review, only: [:show, :edit, :update]
   load_and_authorize_resource :store, :coordinate, :product, only: [:new, :create]
 
+  def search
+    index
+    render :index
+  end
+
   def index
+    @reviews = @q.result.eager_load(:store).to_a.uniq
   end
 
   def show

@@ -1,12 +1,15 @@
 <div id="user-header">
   <header class="main-header user-header-bar">
     <div class="header-cell">
-      <%= link_to t("name_system"), root_path, id: "logo-lg" %>
+      <%= link_to t("name_system"), reviews_path, id: "logo-lg" %>
+
+      <%= render "shared/search_form" %>
+
       <% if current_user.present? %>
         <nav class="navbar navbar-static-top" role="navigation">
           <div class="navbar-custom-menu">
-            <ul class="nav navbar-nav">
-              <li class="dropdown user user-menu">
+            <ul class="nav navbar-nav user-menu">
+              <li class="dropdown user">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <%= image_tag(current_user.avatar, alt: "User Image",
                     class: "user-image image-display") %>
@@ -31,6 +34,19 @@
           <%= link_to t("staticpages.sign_up"), new_user_registration_path %>
         </div>
       <% end %>
+
+      <nav class="navbar navbar-static-top" role="navigation">
+        <div class="menu-tab">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <%= link_to t("menu.on_map"), maps_index_path %>
+            </li>
+            <li class="dropdown">
+              <%= link_to t("menu.all_posts"), reviews_path %>
+            </li>
+          </ul>
+        </div>
+      </nav>
     </div>
     <p class="border-header"></p>
   </header>
