@@ -3,8 +3,6 @@
   </script>
 </head>
 <body onload="index_maps()">
-  <%= render "shared/review_tabs" %>
-
   <div id="map-index-container">
     <div id="map-index-reviews" data-coordinates="<%= @coordinates.to_json%>"
       data-stores="<%= @stores.to_json %>"
