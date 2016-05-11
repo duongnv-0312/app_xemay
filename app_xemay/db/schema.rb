@@ -23,13 +23,12 @@ ActiveRecord::Schema.define(version: 20160422205225) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.string   "content",      limit: 255
+    t.string   "content",    limit: 255
     t.datetime "start_time"
-    t.float    "rating_point", limit: 24
-    t.integer  "user_id",      limit: 4
-    t.integer  "review_id",    limit: 4
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.integer  "user_id",    limit: 4
+    t.integer  "review_id",  limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   add_index "comments", ["review_id"], name: "index_comments_on_review_id", using: :btree

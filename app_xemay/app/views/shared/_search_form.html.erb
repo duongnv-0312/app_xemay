@@ -1,0 +1,10 @@
+<div id="search-input">
+  <%= search_form_for @q, url: search_reviews_path,
+    html: { method: :post } do |f| %>
+    <%= f.search_field :content_or_store_name_or_store_address_cont,
+      class: "form-control", placeholder: t("search.review_holder") %>
+
+    <%= button_tag "", type: "submit",
+      class: "glyphicon glyphicon-search" %>
+  <% end %>
+</div>

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  post '/rate' => 'rater#create', :as => 'rate'
+  post "/rate" => "rater#create", :as => "rate"
   devise_for :users, path: "auth", path_names: {sign_in: "login", sign_out: "logout"}
   root "reviews#index"
   get "maps/index"
@@ -12,5 +12,8 @@ Rails.application.routes.draw do
   resources :users
   resources :reviews do
     resources :comments
+    collection do
+      match "search" => "reviews#search", via: [:get, :post], as: :search
+    end
   end
 end
