@@ -26,6 +26,11 @@ function searchByRadius() {
   var coordinates = $.parseJSON($("#map-index-reviews").attr("data-coordinates"));
   var stores = $.parseJSON($("#map-index-reviews").attr("data-stores"));
   var reviews = $.parseJSON($("#map-index-reviews").attr("data-reviews"));
+  var radiusControlDiv = document.createElement("div");
+  radiusControl = new RadiusControl(radiusControlDiv);
+
+  radiusControlDiv.index = 1;
+  map.controls[google.maps.ControlPosition.BOTTOM_RIGHT].push(radiusControlDiv);
 
   google.maps.event.addListener(map, "click", function(e) {
     if(markersArray.length > 0) {
@@ -71,7 +76,7 @@ function searchByRadius() {
 
 function clearMarkers() {
   for (var i = 0; i < markersArray.length; i++) {
-    if(markersArray[i] != undefined) {
+    if(markersArray[i] !== undefined) {
       markersArray[i].setMap(null);
     }
   }
@@ -99,19 +104,43 @@ function bindInfoWindow(marker, map, infowindows, markerContent) {
   });
 }
 
-function radiusControl(map) {
-  var radiusControlDiv = document.createElement("div");
-  radiusControlDiv.id = "radiusControlDiv";
-  radiusControlDiv.index = 1;
-  map.controls[google.maps.ControlPosition.TOP_LEFT].push(radiusControlDiv);
+function RadiusControl(radiusControlDiv) {
+  var radiusControlButton = document.createElement("button");
+  radiusControlButton.className = "radiusControlButton";
+  radiusControlButton.style.backgroundColor = "rgba(222, 208, 208, 0.7)";
+  radiusControlButton.style.border = "1px solid rgba(113, 91, 91, 0.3)";
+  radiusControlButton.style.outline = "none";
+  radiusControlButton.style.width = "40px";
+  radiusControlButton.style.height = "28px";
+  radiusControlButton.style.borderRadius = "2px";
+  radiusControlButton.style.boxShadow = "0 1px 4px rgba(0,0,0,0.3)";
+  radiusControlButton.style.cursor = "pointer";
+  radiusControlButton.style.marginRight = "10px";
+  radiusControlButton.style.padding = "0";
+  radiusControlButton.title = "Clear Overlay";
 
-  var numberInput = document.createElement("input");
-  numberInput.id = "numberInput";
-  numberInput.type = "number";
-  numberInput.min = "0";
-  numberInput.max = "10000";
-  numberInput.placeholder = "..(met)";
-  radiusControlDiv.appendChild(numberInput);
+  radiusControlDiv.appendChild(radiusControlButton);
+
+  var radiusControlChild = document.createElement("div");
+  radiusControlChild.style.margin = "5px 10px";
+  radiusControlChild.style.width = "23px";
+  radiusControlChild.style.height = "23px";
+  radiusControlChild.style.backgroundImage = "url('/assets/turn_off_on_power.png')";
+  radiusControlChild.style.backgroundSize = "18px 18px";
+  radiusControlChild.style.backgroundPosition = "0 0";
+  radiusControlChild.style.backgroundRepeat = "no-repeat";
+
+  radiusControlButton.appendChild(radiusControlChild);
+
+  radiusControlButton.addEventListener("click", function() {
+    if(markersArray.length > 0) {
+      clearMarkers();
+    }
+
+    if(circles !== undefined) {
+      circles.setMap(null);
+    }
+  });
 }
 
 function geoMylocation(map, infoGeolocation) {
@@ -184,6 +213,14 @@ function CenterControl(controlDiv, map, pos, posGeolocation) {
   controlUI.appendChild(secondChild);
 
   controlUI.addEventListener("click", function() {
+    if(markersArray.length > 0) {
+      clearMarkers();
+    }
+
+    if(circles !== undefined) {
+      circles.setMap(null);
+    }
+
     map.setCenter(pos);
     var markerGeolocation = new google.maps.Marker(posGeolocation);
     markerGeolocation.setMap(map);
