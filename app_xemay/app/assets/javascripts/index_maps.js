@@ -29,7 +29,7 @@ function searchByRadius() {
 
   google.maps.event.addListener(map, "click", function(e) {
     if(markersArray.length > 0) {
-      clearMarkers(markersArray);
+      clearMarkers();
     }
 
     if(circles !== undefined) {
@@ -69,10 +69,14 @@ function searchByRadius() {
   });
 }
 
-function clearMarkers(markersArray) {
+function clearMarkers() {
   for (var i = 0; i < markersArray.length; i++) {
-    markersArray[i].setMap(null);
+    if(markersArray[i] != undefined) {
+      markersArray[i].setMap(null);
+    }
   }
+
+  markersArray.length = 0;
 }
 
 function drawCircle(orgLocation, rad) {
