@@ -1,8 +1,13 @@
 <head>
-  <script src="https://maps.googleapis.com/maps/api/js?libraries=geometry&key=AIzaSyCpjZ2NGtngZBKi2wlmzgtKioFkTbQO-qo">
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpjZ2NGtngZBKi2wlmzgtKioFkTbQO-qo&libraries=places,geometry">
   </script>
 </head>
 <body onload="index_maps()">
+  <div id="inputWrapper">
+    <input id="pac-input" class="controls" type="text"
+      placeholder="Search Places">
+  </div>
+
   <div id="map-index-container">
     <div id="map-index-reviews" data-coordinates="<%= @coordinates.to_json%>"
       data-stores="<%= @stores.to_json %>"

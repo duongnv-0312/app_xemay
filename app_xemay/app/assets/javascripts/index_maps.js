@@ -1,3 +1,5 @@
+//= require search_box
+
 var map;
 var currentPosition;
 var service;
@@ -18,6 +20,7 @@ function index_maps() {
 
   map = new google.maps.Map(document.getElementById("map-index-reviews"), options);
   infoGeolocation = new google.maps.InfoWindow({maxWidth: 200});
+  searchBox();
   geoMylocation(map, infoGeolocation);
   searchByRadius();
 }
