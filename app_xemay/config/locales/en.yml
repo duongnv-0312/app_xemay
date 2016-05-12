@@ -32,13 +32,6 @@ en:
     current_waiting: "Currently waiting confirmation for"
     cancel_account: "Cancel my account"
     unhappy: "Unhappy"
-  staticpages:
-    profile: "Profile"
-    logout: "Log Out"
-    log_in: "Log In"
-    sign_up: "Sign Up"
-  search:
-    review_holder: "Search any things"
   reviews:
     new_review: "New review"
     products: "Products"
@@ -50,3 +43,12 @@ en:
     rate_now: "Rate now"
     average_rating: "Average rating"
     total_rater: "Total rater"
+  staticpages:
+    profile: "Profile"
+    logout: "Log Out"
+    log_in: "Log In"
+    sign_up: "Sign Up"
+  search:
+    review_holder: "Search any things"
+  title:
+    yeu_xe: "Yeu xe may"
