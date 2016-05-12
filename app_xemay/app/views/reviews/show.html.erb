@@ -42,13 +42,15 @@
       </div>
     </div>
 
+    <div class="comment-input">
+      <%= render "comments/form" %>
+    </div>
+
     <hr>
     <div id="comments" class="comments-block">
       <% @review.comments.each do |comment| %>
         <%= render "comments/comment", comment: comment %>
       <% end %>
-
-      <%= render "comments/form" %>
     </div>
   </div>
 </div>

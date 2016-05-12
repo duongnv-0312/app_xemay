@@ -1,2 +1,12 @@
-<%= comment.content %>
-<hr>
+<% unless comment.content.nil? %>
+  <div class="form-group comment-cell">
+    <div class="avatar-comment col-md-1">
+      <%= image_tag comment.user_avatar %>
+    </div>
+    <div class="content-comment col-md-11">
+      <b><%= link_to comment.user_name, user_path(comment.user) %></b>
+      <%= comment.content %>
+    </div><br>
+    <hr>
+  </div>
+<% end %>
