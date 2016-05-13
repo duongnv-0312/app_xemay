@@ -21,10 +21,8 @@ class ReviewsController < ApplicationController
     @lat = @store.coordinate_lat
     @lng = @store.coordinate_lng
 
-    if @store.average("quality")
-      @average_rating = @store.average("quality").avg
-      @total_rater = @store.rates("quality").count
-    end
+    @average_rating = @store.average("quality") ? @store.average("quality").avg : 0
+    @total_rater = @store.rates("quality") ? @store.rates("quality").count : 0
   end
 
   def new
