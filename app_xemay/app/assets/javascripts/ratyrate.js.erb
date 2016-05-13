@@ -49,7 +49,9 @@ $(function(){
         },
         function(data) {
           if(data) {
-            // success code goes here ...
+            $('#average_rating').html(parseFloat(data.average_rating.toFixed(1)));
+            console.log(parseFloat(data.average_rating));
+            $('total_rater').html(data.total_rater);
 
             if ($(_this).attr('data-disable-after-rate') == 'true') {
               $(_this).raty('set', { readOnly: true, score: score });
