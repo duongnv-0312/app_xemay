@@ -21,21 +21,14 @@
           <%= @review.content %>
         </div>
 
-        <% if @average_rating %>
-          <div class="rate-point pull-right">
-            <p>
-              <%= t "rate.average_rating" %>&nbsp;<b><%= @average_rating %></b>
-            </p>
-            <p>
-              <%= t "rate.total_rater" %>&nbsp;<b><%= @total_rater %></b>
-            </p>
-          </div>
-        <% end %>
+        <div id="rating_point" class="rate-point pull-right">
+          <%= render "rate_point" %>
+        </div>
 
         <div class="rate-store">
           <b><%= t "rate.rate_now" %></b><br>
           <%= rating_for @store, "quality", enable_half: false, disable_after_rate: false, cancel: true,
-            cancel_hint: t("rate.cancel_hint"), star: 5 %>
+            cancel_hint: t("rate.cancel_hint"), star: 5, remote: true %>
         </div>
       </div>
     </div>
@@ -46,6 +39,8 @@
 
     <hr>
     <div id="comments" class="comments-block">
+      <%= render "comments/form" %>
+
       <% @review.comments.each do |comment| %>
         <%= render "comments/comment", comment: comment %>
       <% end %>
