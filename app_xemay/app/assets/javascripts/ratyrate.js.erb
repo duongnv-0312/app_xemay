@@ -50,7 +50,6 @@ $(function(){
         function(data) {
           if(data) {
             $('#average_rating').html(parseFloat(data.average_rating.toFixed(1)));
-            console.log(parseFloat(data.average_rating));
             $('total_rater').html(data.total_rater);
 
             if ($(_this).attr('data-disable-after-rate') == 'true') {
