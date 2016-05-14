@@ -31,3 +31,11 @@ function add_fields(link, association, content) {
   var regexp = new RegExp("new_" + association, "g");
   $(link).parent().before(content.replace(regexp, new_id));
 }
+
+$(document).ready(function() {
+  $("#comment_content").keypress(function(event) {
+    if(event.which == 13 && !event.shiftKey) {
+      $(this).closest('form').submit();
+    }
+  });
+});

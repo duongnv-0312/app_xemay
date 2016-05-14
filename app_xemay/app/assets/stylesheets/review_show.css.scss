@@ -52,8 +52,16 @@
     }
 
     .comment-input {
-      padding-top: 100px;
+      margin-top: 10px;
       font-size: 120%;
+
+      .avatar-comment {
+        img {
+          margin-left: 20px;
+          width: 32px;
+          height: 32px;
+        }
+      }
 
       .col-md-10 {
         textarea {

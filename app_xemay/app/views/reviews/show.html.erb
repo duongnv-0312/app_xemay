@@ -11,7 +11,7 @@
         </div>
       </div>
 
-      <div class="col-md-10">
+      <div class="col-md-11">
         <div class="store-name">
           <%= link_to @user.name, user_path(@user) %>
           <h3><%= @store.name unless @store.nil?%></h3>
@@ -41,14 +41,12 @@
       </div>
     </div>
 
-    <div class="comment-input">
+    <div class="form-group">
       <%= render "comments/form" %>
     </div>
 
     <hr>
     <div id="comments" class="comments-block">
-      <%= render "comments/form" %>
-
       <% @review.comments.each do |comment| %>
         <%= render "comments/comment", comment: comment %>
       <% end %>

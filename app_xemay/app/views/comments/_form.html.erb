@@ -1,11 +1,11 @@
 <div class="row">
   <%= form_for [@review, @comment], remote: true do |f|%>
-    <div class="form-group">
-      <div class="col-md-10">
-        <%= f.text_area :content %>
+    <div class="comment-input">
+      <div class="col-md-1 avatar-comment">
+        <%= image_tag current_user.avatar %>
       </div>
-      <div class="col-md-2">
-        <%= f.submit :comment, class: "btn btn-primary btn-xs" %>
+      <div class="col-md-10 text-comment">
+        <%= f.text_area :content %>
       </div>
     </div>
   <% end %>
