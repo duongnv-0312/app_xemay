@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :reviews, :top_ten_rate, only: :index
   before_action :find_review, only: [:show, :edit, :update]
-  load_and_authorize_resource :store, :coordinate, :product, only: [:new, :create]
+  load_and_authorize_resource :store, :coordinate, :product, except: [:index, :show]
 
   def search
     index
@@ -40,6 +40,17 @@ class ReviewsController < ApplicationController
       redirect_to reviews_path
     else
       render :new
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @review.update review_params
+      redirect_to @review
+    else
+      render :edit
     end
   end
 
