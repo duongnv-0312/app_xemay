@@ -21,35 +21,36 @@
 
 en:
   menu:
-    on_map: "On map"
     all_posts: "All Posts"
+    on_map: "On map"
   name_system: "Xe may"
   profile:
-    edit: "Edit"
     back: "Back"
-    home: "Home"
-    new_review: "New review"
     current_waiting: "Currently waiting confirmation for"
     cancel_account: "Cancel my account"
+    edit: "Edit"
+    home: "Home"
+    new_review: "New review"
     unhappy: "Unhappy"
   reviews:
+    edit: "Edit review"
     new_review: "New review"
     products: "Products"
     top_rate: "Top Rate"
   rate:
     attitude: "Attitude"
-    price: "Price"
-    specialize: "Specialize"
-    cancel_hint: "Cancel this rating!"
-    rate_now: "Rate now"
     average_rating: "Average rating"
+    cancel_hint: "Cancel this rating!"
+    price: "Price"
+    rate_now: "Rate now"
+    specialize: "Specialize"
     total_rater: "Total rater"
   staticpages:
-    profile: "Profile"
-    logout: "Log Out"
-    log_in: "Log In"
     active_now: "Active Now"
     create_account: "Create Account"
+    logout: "Log Out"
+    log_in: "Log In"
+    profile: "Profile"
   search:
     review_holder: "Search any things"
   title:
