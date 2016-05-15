@@ -1,0 +1,10 @@
+<div>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-1">
+      <h2><%= t "reviews.edit" %></h2>
+    </div>
+  </div>
+  <%= form_for @review do |f| %>
+    <%= render partial: "form", locals: {f: f} %>
+  <% end %>
+</div>

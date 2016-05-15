@@ -9,7 +9,7 @@ class Ability
       can :manage, Comment, user_id: user.id
       can :manage, Coordinate
       can :manage, Image
-      can :manage, Mark, user_id: user.id
+      can :manage, MarkedReview, user_id: user.id
       can :manage, Product
       can :manage, Review, user_id: user.id
       can :manage, Store

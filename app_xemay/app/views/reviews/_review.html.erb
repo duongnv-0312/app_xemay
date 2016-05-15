@@ -1,6 +1,6 @@
 <div class="row border-show">
   <div class="form-group">
-    <div class="review-user col-md-2">
+    <div class="review-user col-md-1">
       <p><%= link_to review.user.name, user_path(review.user) %></p>
       <div class="review-avatar">
         <%= link_to image_tag(review.user.avatar), user_path(review.user) %>
@@ -13,13 +13,28 @@
           <%= link_to review.store_name, review_path(review) %>
         <% end %>
       </div>
+
     </div>
 
-    <div class="review-content">
+    <div class="mark-review col-md-1" id="mark-review-<%= review.id %>">
+      <% if current_user %>
+        <% unless review.user == current_user %>
+          <% if current_user.markings? review %>
+            <%= render partial: "unmark", locals: {review: review} %>
+          <% else %>
+            <%= render partial: "mark", locals: {review: review} %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-md-10 review-content">
       <%= review.content %>
     </div>
 
-    <div class="pull-right">
+    <div class="col-md-4 col-md-offset-8">
       <i>
         <%= review.store_address %>
       </i><br>

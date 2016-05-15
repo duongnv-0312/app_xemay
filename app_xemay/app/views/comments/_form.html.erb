@@ -2,7 +2,9 @@
   <%= form_for [@review, @comment], remote: true do |f|%>
     <div class="comment-input">
       <div class="col-md-1 avatar-comment">
-        <%= image_tag current_user.avatar %>
+        <% if current_user %>
+          <%= image_tag current_user.avatar %>
+        <% end %>
       </div>
       <div class="col-md-10 text-comment">
         <%= f.text_area :content %>
