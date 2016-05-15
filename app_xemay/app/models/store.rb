@@ -16,4 +16,6 @@ class Store < ActiveRecord::Base
   accepts_nested_attributes_for :products, allow_destroy: true
 
   delegate :lat, :lng, to: :coordinate, prefix: true, allow_nil: true
+
+  scope :top_ten_rate, ->{order("avg_rating ASC, created_at DESC").first(10)}
 end

@@ -1,5 +1,8 @@
 #review-index {
+  float: left;
   margin-left: 9%;
+  width: 60%;
+
   .store-map {
     height: 400px;
     width: 100%;
@@ -9,7 +12,6 @@
   .border-show {
     margin-top: 2%;
     margin-left: 10%;
-    width: 60%;
     border: 1px solid #dddddd;
     box-sizing: border-box;
     border-radius: 4px 4px 0 0;
@@ -49,25 +51,43 @@
       }
     }
   }
+}
 
-  .right-content .col-md-2{
+#top_ten_rate {
+  width: 25%;
+  height: 25%;
+  border: 1px solid #7d5353;
+  border-radius: 3px;
+  float: right;
+  margin: 20px 20px 10px;
 
-    .stote-address .pull-right{
-      //font small
-      // italic
-    }
+  .head-right {
+    position: relative;
+    margin-top: -20px;
+    height: 40px;
+    border-bottom: 1px solid #7D5353;
+    background-color: #00e87d;
+    color: white;
+    z-index: 3;
 
-    .store-info {
-
+    h3 {
+      text-align: center;
     }
   }
 
+  .body-right {
+    margin: 10px 10px 5px 10px;
 
-  .store-image {
-
-  }
-
-  .review-comments {
-
+    a.truncate {
+      font-size: 120%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: inline-block;
+      width: 90%;
+      line-height: 25px;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      white-space: nowrap;
+    }
   }
 }

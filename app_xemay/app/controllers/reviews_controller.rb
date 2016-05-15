@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :reviews, only: :index
+  before_action :reviews, :top_ten_rate, only: :index
   before_action :find_review, only: [:show, :edit, :update]
   load_and_authorize_resource :store, :coordinate, :product, only: [:new, :create]
 
@@ -9,7 +9,8 @@ class ReviewsController < ApplicationController
   end
 
   def index
-    @reviews = @q.result.eager_load(:store).to_a.uniq
+    @reviews = @q.result.eager_load(:store).to_a.uniq.reverse
+    @stores = @reviews.map(&:store)
   end
 
   def show
@@ -57,5 +58,13 @@ class ReviewsController < ApplicationController
 
   def find_review
     @review = Review.find params[:id]
+  end
+
+  def top_ten_rate
+    @top_ten_ratings = if Store.all.count > 10
+      Store.all.order("avg_rating ASC").order("created_at DESC").first 10
+    else
+      Store.all
+    end
   end
 end

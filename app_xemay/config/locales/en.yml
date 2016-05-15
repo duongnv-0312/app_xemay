@@ -35,6 +35,7 @@ en:
   reviews:
     new_review: "New review"
     products: "Products"
+    top_rate: "Top Rate"
   rate:
     attitude: "Attitude"
     price: "Price"

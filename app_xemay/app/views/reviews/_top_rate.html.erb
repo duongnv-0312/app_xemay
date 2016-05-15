@@ -1,0 +1,12 @@
+<div class="head-right">
+  <p>
+    <h3><%= t "reviews.top_rate" %></h3>
+  </p>
+</div>
+
+<div class="body-right">
+  <div class="body-truncate">
+    <%= render partial: "reviews/top_ten_rating", collection: @top_ten_ratings,
+      as: :top_ten_rating %>
+  </div>
+</div>
