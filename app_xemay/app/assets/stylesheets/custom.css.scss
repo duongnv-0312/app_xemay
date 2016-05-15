@@ -25,6 +25,13 @@ body {
   display: flex;
   height: 75px;
 
+  .logo-image {
+    height: 50px;
+    width: 70px;
+    margin-left: 100px;
+    margin-top: 10px;
+  }
+
   .user-header-bar {
     width: 100%;
     min-width: 85em;
@@ -145,10 +152,10 @@ body {
   }
 
   .prepare-user {
-    margin-top: 20px;
+    margin-top: 7px;
 
     a {
-      font-size: 120%;
+      font-size: 105%;
       font-weight: 600;
       margin-left: 20px;
     }
