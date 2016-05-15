@@ -5,6 +5,8 @@ class CreateStores < ActiveRecord::Migration
       t.string :address
       t.string :phone_number
       t.string :owner
+      t.float :avg_rating, default: 0
+      t.integer :total_rater, default: 0
 
       t.references :review, index: true, foreign_key: true
 

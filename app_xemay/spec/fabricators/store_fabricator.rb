@@ -3,4 +3,6 @@ Fabricator(:store) do
   address {Faker::Address.street_address}
   phone_number {Faker::PhoneNumber.phone_number}
   owner {Faker::Name.name}
+  avg_rating 0
+  total_rater 0
 end

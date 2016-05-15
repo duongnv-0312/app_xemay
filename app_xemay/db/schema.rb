@@ -128,9 +128,11 @@ ActiveRecord::Schema.define(version: 20160422205225) do
     t.string   "address",      limit: 255
     t.string   "phone_number", limit: 255
     t.string   "owner",        limit: 255
+    t.float    "avg_rating",   limit: 24,  default: 0.0
+    t.integer  "total_rater",  limit: 4,   default: 0
     t.integer  "review_id",    limit: 4
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
   end
 
   add_index "stores", ["review_id"], name: "index_stores_on_review_id", using: :btree
