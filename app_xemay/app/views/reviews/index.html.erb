@@ -1,3 +1,16 @@
+<div id="create_post">
+  <% if current_user.present? %>
+    <%= link_to new_review_path do %>
+      <i class="glyphicon glyphicon-pencil"></i>
+      <%= t "reviews.create_post" %>
+    <% end %>
+  <% else %>
+    <%= link_to new_user_session_path do %>
+      <i class="glyphicon glyphicon-log-in"></i>
+      <%= t "reviews.become_active_member" %>
+    <% end %>
+  <% end %>
+</div>
 <div id="list-index-reviews">
   <div id="review-index">
     <%= render @reviews %>

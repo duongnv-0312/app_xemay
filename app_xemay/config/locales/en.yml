@@ -48,7 +48,8 @@ en:
     profile: "Profile"
     logout: "Log Out"
     log_in: "Log In"
-    sign_up: "Sign Up"
+    active_now: "Active Now"
+    create_account: "Create Account"
   search:
     review_holder: "Search any things"
   title:
