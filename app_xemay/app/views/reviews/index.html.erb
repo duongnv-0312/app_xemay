@@ -1,5 +1,5 @@
 <div id="create_post">
-  <% if current_user.present? %>
+  <% if current_user %>
     <%= link_to new_review_path do %>
       <i class="glyphicon glyphicon-pencil"></i>
       <%= t "reviews.create_post" %>

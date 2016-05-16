@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160422205225) do
+ActiveRecord::Schema.define(version: 20160515164029) do
 
   create_table "average_caches", force: :cascade do |t|
     t.integer  "rater_id",      limit: 4
@@ -53,6 +53,16 @@ ActiveRecord::Schema.define(version: 20160422205225) do
     t.datetime "updated_at",             null: false
     t.integer  "store_id",   limit: 4
   end
+
+  create_table "marked_reviews", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "review_id",  limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "marked_reviews", ["review_id"], name: "index_marked_reviews_on_review_id", using: :btree
+  add_index "marked_reviews", ["user_id"], name: "index_marked_reviews_on_user_id", using: :btree
 
   create_table "marks", force: :cascade do |t|
     t.datetime "start_time"
@@ -163,6 +173,8 @@ ActiveRecord::Schema.define(version: 20160422205225) do
   add_foreign_key "comments", "users"
   add_foreign_key "coordinates", "regions"
   add_foreign_key "coordinates", "stores"
+  add_foreign_key "marked_reviews", "reviews"
+  add_foreign_key "marked_reviews", "users"
   add_foreign_key "marks", "reviews"
   add_foreign_key "marks", "users"
   add_foreign_key "products", "stores"

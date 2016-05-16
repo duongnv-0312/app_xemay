@@ -1,6 +1,7 @@
 class Review < ActiveRecord::Base
   has_many :comments, dependent: :destroy
-  has_many :marks, dependent: :destroy
+  has_many :marked_reviews, dependent: :destroy
+  has_many :marked_by, through: :marked_reviews, source: :user
 
   has_one :store, dependent: :destroy
   belongs_to :user

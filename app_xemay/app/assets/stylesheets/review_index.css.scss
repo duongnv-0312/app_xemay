@@ -20,12 +20,32 @@
   .border-show {
     margin-top: 2%;
     margin-left: 10%;
+    padding: 10px;
     border: 1px solid #dddddd;
     box-sizing: border-box;
     border-radius: 4px 4px 0 0;
     display: block;
 
+    .mark-review {
+      margin-right: 0px;
+      float: right;
+      .mark-now {
+        color: yellow;
+        background-color: #6CAAD7;
+      }
+
+      .marked {
+        color: red;
+        background-color: #6CAAD7;
+      }
+
+      .btn {
+        padding: 2px 5px;
+      }
+    }
+
     .review-user {
+      display: inline-block;
       min-height: 100px;
       .review-avatar {
         img {

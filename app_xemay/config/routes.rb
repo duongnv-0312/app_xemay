@@ -9,11 +9,16 @@ Rails.application.routes.draw do
     resources :reviews
   end
 
-  resources :users
+  resources :users do
+    collection do
+      get :markings
+    end
+  end
   resources :reviews do
     resources :comments
     collection do
       match "search" => "reviews#search", via: [:get, :post], as: :search
     end
   end
+  resources :marked_reviews, only: [:create, :destroy]
 end
