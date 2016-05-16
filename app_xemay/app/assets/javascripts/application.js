@@ -19,6 +19,7 @@
 //= require ratyrate
 //= require show_on_map
 //= require turbolinks
+//= require jquery.lazyload
 //= require_tree .
 
 function remove_fields(link) {
@@ -38,6 +39,16 @@ $(document).ready(function() {
       $(this).closest('form').submit();
     }
   });
+
+  $("img").lazyload({
+    event: "lazyload",
+    effect: "fadeIn",
+    effectspeed: 2000
+  }).trigger("lazyload");
+
+  $(".review-content").lazyload({
+    threshold : 200
+  }).trigger("lazyload");
 });
 
 $(document).on("page:change page:load", function(){
