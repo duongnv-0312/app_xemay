@@ -1,23 +1,17 @@
-<head>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpjZ2NGtngZBKi2wlmzgtKioFkTbQO-qo">
- </script>
-</head>
-<body onload="initialize()">
-  <div class="row">
-    <div class="form-group">
-      <div class="col-md-5">
-        <%= f.text_field :lat, class: "form-control",
-          placeholder: "Latitude" %>
-      </div>
-      <div class="col-md-5">
-        <%= f.text_field :lng, class: "form-control",
-          placeholder: "Longitude" %>
-      </div>
+<div class="row">
+  <div class="form-group">
+    <div class="col-md-5">
+      <%= f.text_field :lat, class: "form-control",
+        placeholder: "Latitude" %>
+    </div>
+    <div class="col-md-5">
+      <%= f.text_field :lng, class: "form-control",
+        placeholder: "Longitude" %>
     </div>
   </div>
+</div>
 
-  <div id="new-map-container">
-    <div id="new-map-canvas">
-    </div>
+<div id="new-map-container">
+  <div id="new-map-canvas">
   </div>
-</body>
+</div>

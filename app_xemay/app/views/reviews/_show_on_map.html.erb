@@ -1,18 +1,12 @@
-<head>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpjZ2NGtngZBKi2wlmzgtKioFkTbQO-qo">
-  </script>
-</head>
-<body onload="show_on_map()">
-  <div id="show-map-container">
-    <div id="show-map-canvas" class="show-map-canvas">
-      <input type="hidden" value="<%= @lat %>" id="coordinate_lat"></input>
-      <input type="hidden" value="<%= @lng %>" id="coordinate_lng"></input>
-      <input type="hidden" value="<%= @review.content %>"
-        id="review_content"></input>
-      <input type="hidden" value="<%= @store.phone_number %>"
-         id="store_phone_number"></input>
-      <input type="hidden" value="<%= @store.name %>" id="store_name"></input>
-      <input type="hidden"></input>
-    </div>
+<div id="show-map-container">
+  <div id="show-map-canvas" class="show-map-canvas">
+    <input type="hidden" value="<%= @lat %>" id="coordinate_lat"></input>
+    <input type="hidden" value="<%= @lng %>" id="coordinate_lng"></input>
+    <input type="hidden" value="<%= @review.content %>"
+      id="review_content"></input>
+    <input type="hidden" value="<%= @store.phone_number %>"
+       id="store_phone_number"></input>
+    <input type="hidden" value="<%= @store.name %>" id="store_name"></input>
+    <input type="hidden"></input>
   </div>
-</body>
+</div>

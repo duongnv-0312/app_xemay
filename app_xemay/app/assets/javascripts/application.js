@@ -39,3 +39,18 @@ $(document).ready(function() {
     }
   });
 });
+
+$(document).on("page:change page:load", function(){
+  if($("#map-index-container").length > 0) {
+    index_maps();
+  }
+  else if($("#show-map-container").length > 0) {
+    show_on_map();
+  }
+  else if($("#new-map-container").length > 0) {
+    initialize();
+  }
+  else {
+    return;
+  }
+});
