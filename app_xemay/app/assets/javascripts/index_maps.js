@@ -16,7 +16,6 @@ function index_maps() {
   var coordinates = $.parseJSON($("#map-index-reviews").attr("data-coordinates"));
   var stores = $.parseJSON($("#map-index-reviews").attr("data-stores"));
   var reviews = $.parseJSON($("#map-index-reviews").attr("data-reviews"));
-  // toJsonData(coordinates, stores, reviews);
 
   map = new google.maps.Map(document.getElementById("map-index-reviews"), options);
   infoGeolocation = new google.maps.InfoWindow({maxWidth: 200});
@@ -62,8 +61,20 @@ function searchByRadius() {
             position: desLocation,
             map: map
           });
-          markerContent = "Lat: " + coordinates[i].lat +
-                          "<br>Lng: " + coordinates[i].lng +"";
+          markerContent =
+            '<div id="markerContent">' +
+              '<a id="marker-store-name" href="/reviews/' + stores[i].review_id + '"">' +
+                stores[i].name  +
+              '</a>' +
+              '<p id="marker-avg-rate">' +
+                '<img src="/assets/mid-star.png">' +
+                '<b>' + stores[i].avg_rating + '</b>' +
+              '</p>' +
+              '<p id="marker-phone-number">' +
+                '<b>DT</b> &nbsp;' +
+                '<i>' + stores[i].phone_number + '</i>' +
+              '</p>' +
+            '</div>';
 
           markersArray[i].setMap(map);
           infowindows [i] = new google.maps.InfoWindow({
@@ -109,30 +120,13 @@ function bindInfoWindow(marker, map, infowindows, markerContent) {
 
 function RadiusControl(radiusControlDiv) {
   var radiusControlButton = document.createElement("button");
-  radiusControlButton.className = "radiusControlButton";
-  radiusControlButton.style.backgroundColor = "rgba(222, 208, 208, 0.7)";
-  radiusControlButton.style.border = "1px solid rgba(113, 91, 91, 0.3)";
-  radiusControlButton.style.outline = "none";
-  radiusControlButton.style.width = "40px";
-  radiusControlButton.style.height = "28px";
-  radiusControlButton.style.borderRadius = "2px";
-  radiusControlButton.style.boxShadow = "0 1px 4px rgba(0,0,0,0.3)";
-  radiusControlButton.style.cursor = "pointer";
-  radiusControlButton.style.marginRight = "10px";
-  radiusControlButton.style.padding = "0";
+  radiusControlButton.id = "radiusControlButton";
   radiusControlButton.title = "Clear Overlay";
 
   radiusControlDiv.appendChild(radiusControlButton);
 
   var radiusControlChild = document.createElement("div");
-  radiusControlChild.style.margin = "5px 10px";
-  radiusControlChild.style.width = "23px";
-  radiusControlChild.style.height = "23px";
-  radiusControlChild.style.backgroundImage = "url('/assets/turn_off_on_power.png')";
-  radiusControlChild.style.backgroundSize = "18px 18px";
-  radiusControlChild.style.backgroundPosition = "0 0";
-  radiusControlChild.style.backgroundRepeat = "no-repeat";
-
+  radiusControlChild.id = "radiusControlChild";
   radiusControlButton.appendChild(radiusControlChild);
 
   radiusControlButton.addEventListener("click", function() {
@@ -191,28 +185,13 @@ function handleLocationError(browserHasGeolocation, infoGeolocation, pos) {
 
 function CenterControl(controlDiv, map, pos, posGeolocation) {
   var controlUI = document.createElement("button");
-  controlUI.style.backgroundColor = "#fff";
-  controlUI.style.border = "none";
-  controlUI.style.outline = "none";
-  controlUI.style.width = "28px";
-  controlUI.style.height = "28px";
-  controlUI.style.borderRadius = "2px";
-  controlUI.style.boxShadow = "0 1px 4px rgba(0,0,0,0.3)";
-  controlUI.style.cursor = "pointer";
-  controlUI.style.marginRight = "10px";
-  controlUI.style.padding = "0";
+  controlUI.id = "controlUI";
   controlUI.title = "Your Location";
 
   controlDiv.appendChild(controlUI);
 
   var secondChild = document.createElement("div");
-  secondChild.style.margin = "5px";
-  secondChild.style.width = "18px";
-  secondChild.style.height = "18px";
-  secondChild.style.backgroundImage = "url('https://maps.gstatic.com/tactile/mylocation/mylocation-sprite-2x.png')";
-  secondChild.style.backgroundSize = "180px 18px";
-  secondChild.style.backgroundPosition = "0 0";
-  secondChild.style.backgroundRepeat = "no-repeat";
+  secondChild.id = "secondChild";
   controlUI.appendChild(secondChild);
 
   controlUI.addEventListener("click", function() {
