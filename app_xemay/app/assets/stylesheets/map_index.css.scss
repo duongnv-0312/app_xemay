@@ -41,3 +41,78 @@
   width: 17%;
   height: 5%;
 }
+
+#marker-store-name {
+  font-size: 130%;
+}
+
+#marker-avg-rate {
+  width: 60px;
+  height: 60px;
+  position: relative;
+  margin-left: 150px;
+  background-repeat: no-repeat;
+  img {
+    position: relative;
+  }
+
+  b {
+    z-index: 10;
+    position: absolute;
+    top: 20px;
+    left: 25px;
+    vertical-align: middle;
+    font-size: 120%;
+    color: white;
+  }
+}
+
+#marker-phone-number {
+  text-align: center;
+}
+
+button#controlUI {
+  background-color: #fff;
+  border: none;
+  outline: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 2px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+  cursor: pointer;
+  margin-right: 10px;
+  padding: 0;
+}
+
+div#secondChild {
+  margin: 5px;
+  width: 18px;
+  height: 18px;
+  background-image: url('https://maps.gstatic.com/tactile/mylocation/mylocation-sprite-2x.png');
+  background-size: 180px 18px;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+}
+
+button#radiusControlButton {
+  background-color: rgba(222, 208, 208, 0.7);
+  border: 1px solid rgba(113, 91, 91, 0.3);
+  outline: none;
+  width: 40px;
+  height: 28px;
+  border-radius: 2px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+  cursor: pointer;
+  margin-right: 10px;
+  padding: 0;
+}
+
+div#radiusControlChild {
+  margin: 5px 10px;
+  width: 23px;
+  height: 23px;
+  background-image: url('/assets/turn_off_on_power.png');
+  background-size: 18px 18px;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+}
