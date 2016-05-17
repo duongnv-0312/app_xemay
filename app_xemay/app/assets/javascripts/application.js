@@ -18,6 +18,7 @@
 //= require new_form_maps
 //= require ratyrate
 //= require show_on_map
+//= require jquery.lazyload
 //= require turbolinks
 //= require_tree .
 
