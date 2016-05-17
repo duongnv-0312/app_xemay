@@ -3,7 +3,8 @@
     <div class="review-user col-md-1">
       <p><%= link_to review.user.name, user_path(review.user) %></p>
       <div class="review-avatar">
-        <%= link_to image_tag(review.user.avatar), user_path(review.user) %>
+        <%= link_to image_tag(review.user.avatar, lazy: true),
+          user_path(review.user) %>
       </div>
     </div>
 
