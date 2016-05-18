@@ -6,6 +6,18 @@
     margin-bottom: 30px;
   }
 
+  form {
+    .mark-now {
+      color: white;
+      background-color: #6CAAD7;
+    }
+
+    .marked {
+      color: red;
+      background-color: #6CAAD7;
+    }
+  }
+
   .border-show {
     margin-top: 5%;
     margin-left: 10%;
@@ -47,6 +59,7 @@
       .rate-point {
         p {
           font-style: italic;
+          margin-right: 50px;
         }
       }
     }
@@ -84,23 +97,6 @@
       }
     }
   }
-
-  .right-content .col-md-2{
-
-    .stote-address .pull-right{
-    }
-
-    .store-info {
-    }
-  }
-
-
-  .store-image {
-  }
-
-  .review-comments {
-  }
-
 }
 
 #show-map-container {
@@ -114,5 +110,39 @@
     position: fixed;
     height: 298px;
     width: 100%;
+  }
+}
+
+#show-marker-avg {
+  float: right;
+  width: 60px;
+  height: 60px;
+  position: relative;
+  margin-right: 150px;
+  background-repeat: no-repeat;
+
+  img {
+    position: relative;
+  }
+
+  b {
+    z-index: 10;
+    position: absolute;
+    top: 20px;
+    left: 18px;
+    vertical-align: middle;
+    font-size: 120%;
+    color: white;
+  }
+}
+
+#users-rating {
+  float: right;
+  margin-top: 16px;
+  margin-right: 30px;
+
+  b {
+    font-size: 140%;
+    color: blue;
   }
 }

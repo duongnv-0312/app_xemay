@@ -4,6 +4,20 @@
   <%= render "show_on_map" %>
 
   <div class="row border-show">
+    <div class="form-group pull-right">
+      <div class="mark-review col-md-1" id="mark-review-<%= @review.id %>">
+        <% if current_user %>
+          <% unless @review.user == current_user %>
+            <% if current_user.markings? @review %>
+              <%= render partial: "unmark", locals: {review: @review} %>
+            <% else %>
+              <%= render partial: "mark", locals: {review: @review} %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
     <div class="form-group group-show-content">
       <div class="review-user col-md-1">
         <div class="review-avatar">
@@ -25,13 +39,13 @@
           <%= @review.content %>
         </div>
 
-        <div class="rate-point pull-right">
-          <p>
-            <%= t "rate.average_rating" %>&nbsp;
-            <b id="average_rating"><%= @average_rating %></b>
+        <div class="rate-point">
+          <p id="show-marker-avg">
+            <%= image_tag "mid-star.png" %>
+            <b id="average_rating"><%= @average_rating.round 1 %></b>
           </p>
-          <p>
-            <%= t "rate.total_rater" %>&nbsp;
+          <p id="users-rating">
+            <i class="fa fa-users fa-2x"></i>
             <b id="total_rater"><%= @total_rater %></b>
           </p>
         </div>
@@ -40,7 +54,7 @@
           <b><%= t "rate.rate_now" %></b><br>
           <%= rating_for @store, "quality", enable_half: false, disable_after_rate: false, cancel: true,
             cancel_hint: t("rate.cancel_hint"), star: 5, remote: true %>
-        </div>
+        </div><br>
       </div>
     </div>
 

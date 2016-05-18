@@ -1,5 +1,7 @@
 <p class="products_fields">
-  <%= f.text_field :name, class: "form-control", placeholder: :name %>
-  <%= f.text_field :price, class: "form-control", placeholder: :price %>
+  <%= f.text_field :name, class: "form-control",
+    placeholder: t("products.name") %>
+  <%= f.text_field :price, class: "form-control",
+    placeholder: t("products.price") %>
   <%= link_to_remove_fields "remove", f %>
 </p>
