@@ -20,10 +20,21 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  comments:
+    write_comment: "Write comment"
+  coordinates:
+    latitude: "Latitude"
+    longitude: "Longitude"
+  images:
+    image: "Image"
+    caption: "Caption"
   menu:
     all_posts: "All Posts"
     on_map: "On map"
   name_system: "Xe may"
+  products:
+    name: "Name"
+    price: "Price"
   profile:
     back: "Back"
     current_waiting: "Currently waiting confirmation for"
@@ -33,6 +44,7 @@ en:
     new_review: "New review"
     unhappy: "Unhappy"
   reviews:
+    content: "Content"
     edit: "Edit review"
     new_review: "New review"
     products: "Products"
@@ -45,13 +57,18 @@ en:
     rate_now: "Rate now"
     specialize: "Specialize"
     total_rater: "Total rater"
+  search:
+    review_holder: "Search any things"
   staticpages:
     active_now: "Active Now"
     create_account: "Create Account"
     logout: "Log Out"
     log_in: "Log In"
     profile: "Profile"
-  search:
-    review_holder: "Search any things"
+  stores:
+    name: "Name"
+    address: "Address"
+    phone_number: "Phone_number"
+    owner: "Owner"
   title:
     yeu_xe: "Yeu xe may"

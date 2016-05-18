@@ -5,7 +5,8 @@
       <div class="form-group">
         <div class="col-md-10 col-md-offset-1">
           <%= f.text_area :content , rows: 5, class: "form-control",
-            placeholder: :content, required: true %>
+            placeholder: t("reviews.content"), required: true,
+            autofocus: true %>
 
           <%= f.hidden_field :user_id, value: current_user.id %>
         </div>

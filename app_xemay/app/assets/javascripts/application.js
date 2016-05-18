@@ -38,6 +38,7 @@ $(document).ready(function() {
   $("#comment_content").keypress(function(event) {
     if(event.which == 13 && !event.shiftKey) {
       $(this).closest('form').submit();
+      return false;
     }
   });
 

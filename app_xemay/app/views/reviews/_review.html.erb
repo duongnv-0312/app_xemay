@@ -14,10 +14,9 @@
           <%= link_to review.store_name, review_path(review) %>
         <% end %>
       </div>
-
     </div>
 
-    <div class="mark-review col-md-1" id="mark-review-<%= review.id %>">
+    <div class="mark-review col-md-1" id="show-mark-review-<%= review.id %>">
       <% if current_user %>
         <% unless review.user == current_user %>
           <% if current_user.markings? review %>

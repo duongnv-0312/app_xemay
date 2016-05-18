@@ -1,7 +1,8 @@
 <span class="">
   <%= f.file_field :image, multiple: true,
     accept: "image/*", class: "form-control",
-    placeholder: :image %>
+    placeholder: t("images.image") %>
 </span>
 
-<%= f.text_field :caption, class: "form-control", placeholder: :caption %>
+<%= f.text_field :caption, class: "form-control",
+  placeholder: t("images.caption") %>
