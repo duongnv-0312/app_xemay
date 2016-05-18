@@ -25,7 +25,11 @@
 
   <div>
     <% unless @reviews.empty? %>
-      <%= render @reviews %>
+      <div id="list-index-reviews">
+        <div id="review-index">
+          <%= render @reviews %>
+        </div>
+      </div>
     <% end %>
   </div>
 </div>
