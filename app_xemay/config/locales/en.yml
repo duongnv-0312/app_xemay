@@ -44,6 +44,8 @@ en:
     new_review: "New review"
     unhappy: "Unhappy"
   reviews:
+    add_images: "Add images"
+    add_products: "Add products"
     content: "Content"
     edit: "Edit review"
     new_review: "New review"

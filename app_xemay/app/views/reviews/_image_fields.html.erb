@@ -1,0 +1,6 @@
+<p class="images_fields">
+  <%= f.file_field :image, accept: "image/*", class: "form-control",
+    placeholder: t("images.image") %>
+
+  <%= link_to_remove_fields "remove", f %>
+</p>

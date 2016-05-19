@@ -7,14 +7,19 @@
 <%= f.text_field :owner, class: "form-control",
   placeholder: t("stores.owner") %>
 
-<%= f.fields_for :images, html: {multipart: true} do |build_image| %>
-  <%= render "images_fields", f: build_image %>
-<% end %>
+<div>
+  <%= f.fields_for :images do |build_image| %>
+    <%= render "image_fields", f: build_image %>
+  <% end %>
+
+  <%= link_to_add_fields t("reviews.add_images"), f, :images %>
+</div>
 
 <h3><%= t "reviews.products" %></h3>
 <div>
   <%= f.fields_for :products do |build_product| %>
     <%= render "product_fields", f: build_product %>
   <% end %>
+
   <%= link_to_add_fields t("reviews.add_products"), f, :products %>
 </div>
