@@ -1,4 +1,4 @@
 class Image < ActiveRecord::Base
   belongs_to :store
-  mount_uploader :image, ImageUploader
+  mount_uploaders :images, ImageUploader
 end
