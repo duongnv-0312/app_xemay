@@ -18,6 +18,7 @@ class ReviewsController < ApplicationController
     @store = @review.store
     @products = @store.products
     @images = @store.images
+    @indicators = @images.count
     @comment = @review.comments.build
     @lat = @store.coordinate_lat
     @lng = @store.coordinate_lng
