@@ -26,6 +26,7 @@
 function remove_fields(link) {
   $(link).prev("input[type=hidden]").val("1");
   $(link).closest(".products_fields").hide();
+  $(link).closest(".images_fields").hide();
 }
 
 function add_fields(link, association, content) {

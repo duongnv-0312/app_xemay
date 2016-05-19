@@ -48,11 +48,12 @@ ActiveRecord::Schema.define(version: 20160515164029) do
 
   create_table "images", force: :cascade do |t|
     t.string   "image",      limit: 255
-    t.string   "caption",    limit: 255
+    t.integer  "store_id",   limit: 4
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
-    t.integer  "store_id",   limit: 4
   end
+
+  add_index "images", ["store_id"], name: "index_images_on_store_id", using: :btree
 
   create_table "marked_reviews", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -173,6 +174,7 @@ ActiveRecord::Schema.define(version: 20160515164029) do
   add_foreign_key "comments", "users"
   add_foreign_key "coordinates", "regions"
   add_foreign_key "coordinates", "stores"
+  add_foreign_key "images", "stores"
   add_foreign_key "marked_reviews", "reviews"
   add_foreign_key "marked_reviews", "users"
   add_foreign_key "marks", "reviews"
