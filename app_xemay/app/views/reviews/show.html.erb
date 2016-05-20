@@ -39,6 +39,31 @@
           <%= @review.content %>
         </div>
 
+        <div id="jssor_1">
+          <div data-u="loading" class="loading">
+            <div class="loading-1"></div>
+            <div class="loading-2"></div>
+          </div>
+
+          <div data-u="slides" class="slides">
+            <%= render @images %>
+          </div>
+
+          <div data-u="navigator" class="jssorb05" data-autocenter="1">
+            <div data-u="prototype" class="prototype"></div>
+          </div>
+
+          <span data-u="arrowleft" class="jssora22l" data-autocenter="2">
+          </span>
+
+          <span data-u="arrowright" class="jssora22r" data-autocenter="2">
+          </span>
+        </div>
+
+        <script>
+          jssor_1_slider_init();
+        </script>
+
         <div class="rate-point">
           <p id="show-marker-avg">
             <%= image_tag "mid-star.png" %>

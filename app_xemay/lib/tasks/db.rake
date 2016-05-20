@@ -35,9 +35,11 @@ namespace :db do
     puts "Creating Image, Coordinate, Product"
     Store.all.each do |store|
       Fabricate :coordinate, store_id: store.id
+
       2.times do
         Fabricate :image, store_id: store.id
       end
+
       5.times do
         Fabricate :product, store_id: store.id
       end
