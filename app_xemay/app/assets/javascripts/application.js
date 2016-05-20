@@ -21,7 +21,13 @@
 //= require jquery.lazyload
 //= require turbolinks
 //= require jquery.lazyload
+//= require jquery-1.11.3.min
+//= require jssor.slider.debug
+//= require jssor.slider.mini
+//= require slider
 //= require_tree .
+
+$.noConflict();
 
 function remove_fields(link) {
   $(link).prev("input[type=hidden]").val("1");
