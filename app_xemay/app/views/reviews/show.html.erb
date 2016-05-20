@@ -28,7 +28,7 @@
       <div class="col-md-11">
         <div class="store-name">
           <b><%= link_to @user.name, user_path(@user) %></b>
-          <% if current_user.present? & @user == current_user %>
+          <% if current_user.present? && @user == current_user %>
             <%= link_to @store.name, edit_review_path(@store.review) %>
           <% else %>
             <%= link_to @store.name, review_path(@store.review) %>
@@ -69,10 +69,6 @@
             <%= image_tag "mid-star.png" %>
             <b id="average_rating"><%= @average_rating.round 1 %></b>
           </p>
-          <p id="users-rating">
-            <i class="fa fa-users fa-2x"></i>
-            <b id="total_rater"><%= @total_rater %></b>
-          </p>
         </div>
 
         <div class="rate-store">
@@ -93,5 +89,9 @@
         <%= render "comments/comment", comment: comment %>
       <% end %>
     </div>
+  </div>
+
+  <div class="right-side-show">
+    <%= render "right_side_show" %>
   </div>
 </div>
