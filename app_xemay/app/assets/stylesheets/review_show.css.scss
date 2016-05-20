@@ -19,9 +19,10 @@
   }
 
   .border-show {
+    float: left;
     margin-top: 5%;
-    margin-left: 10%;
-    width: 60%;
+    margin-left: 2%;
+    width: 65%;
     border: 1px solid #dddddd;
     box-sizing: border-box;
     border-radius: 4px 4px 0 0;
@@ -98,7 +99,35 @@
       }
     }
   }
+
+  .right-side-show {
+    position: relative;
+    width: 27%;
+    float: right;
+    margin: 5% 2%;
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 5px;
+
+    .right-content {
+      position: inherit;
+      margin-left: 20px;
+
+      .fa {
+        color: #10A4D8;
+      }
+
+      .right-row {
+        margin-top: 10px;
+      }
+    }
+
+    h3 {
+      border-bottom: 1px solid rgb(221, 221, 221);
+      margin-bottom: 10px;
+    }
+  }
 }
+
 
 #show-map-container {
   width: 96%;
@@ -127,10 +156,11 @@
   }
 
   b {
+    width: 60px;
     z-index: 10;
     position: absolute;
     top: 20px;
-    left: 18px;
+    text-align: center;
     vertical-align: middle;
     font-size: 120%;
     color: white;

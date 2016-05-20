@@ -47,10 +47,13 @@ en:
     add_images: "Add images"
     add_products: "Add products"
     content: "Content"
+    created: "Created at"
+    details: "Details"
     edit: "Edit review"
     new_review: "New review"
     products: "Products"
     top_rate: "Top Rate"
+    total_markers: "Total markers"
   rate:
     attitude: "Attitude"
     average_rating: "Average rating"
@@ -72,5 +75,12 @@ en:
     address: "Address"
     phone_number: "Phone_number"
     owner: "Owner"
+  time:
+    ago: "ago"
+    minutes: "minutes"
+    hours: "hours"
+    day: "days"
+    months: "months"
+    years: "years"
   title:
     yeu_xe: "Yeu xe may"
