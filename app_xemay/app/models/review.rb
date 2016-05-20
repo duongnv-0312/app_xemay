@@ -11,6 +11,6 @@ class Review < ActiveRecord::Base
   accepts_nested_attributes_for :store, allow_destroy: true,
     reject_if: proc {|attributes| attributes[:name].blank?}
 
-  delegate :name, :address, :phone_number, to: :store,
+  delegate :name, :address, :phone_number, :avg_rating, to: :store,
     prefix: true, allow_nil: true
 end
