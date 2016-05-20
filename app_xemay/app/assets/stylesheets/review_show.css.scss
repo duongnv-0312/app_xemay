@@ -19,8 +19,9 @@
   }
 
   .border-show {
+    float: left;
     margin-top: 5%;
-    margin-left: 10%;
+    margin-left: 2%;
     width: 60%;
     border: 1px solid #dddddd;
     box-sizing: border-box;
@@ -97,6 +98,14 @@
         }
       }
     }
+  }
+
+  .images-show {
+    float: right;
+    width: 35%;
+    margin-right: 30px;
+    margin-top: 5%;
+    border: 1px solid #4c2727;
   }
 }
 
