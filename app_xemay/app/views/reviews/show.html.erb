@@ -64,6 +64,20 @@
           jssor_1_slider_init();
         </script>
 
+        <div class="store-info">
+          <div class="col-md-5 pull-right">
+            <i class="fa fa-home fa-1x">
+            </i>
+            <%= @store.address %>
+          </div>
+
+          <div class="col-md-5 pull-right">
+            <i class="fa fa-phone-square fa-1x">
+            </i>
+            <%= @store.phone_number %>
+          </div>
+        </div>
+
         <div class="rate-point">
           <p id="show-marker-avg">
             <%= image_tag "mid-star.png" %>
