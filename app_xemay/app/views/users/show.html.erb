@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 <div id="user-profile">
   <div class="row">
     <div class="form-group">
@@ -31,5 +30,13 @@
         </div>
       </div>
     <% end %>
+  </div>
+
+  <div id="marked-review">
+    <h2> Marked Reviews</h2>
+
+    <div class="marked-list">
+      <%= render @marked_reviews %>
+    </div>
   </div>
 </div>

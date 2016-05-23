@@ -2,10 +2,10 @@
   <h3><%= t "reviews.details" %></h3>
   <div class="row">
     <div class="form-group right-row">
-      <div class="col-md-3">
+      <div class="col-md-4">
         <%= t "rate.total_rater" %>
       </div>
-      <div class="col-md-9">
+      <div class="col-md-8">
         <b id="total_rater"><%= @total_rater %></b>
         <% if @total_rater > 1%>
           <i class="fa fa-users fa-1x" style="color: red;"></i>
@@ -16,20 +16,20 @@
     </div>
 
     <div class="form-group right-row">
-      <div class="col-md-3">
+      <div class="col-md-4">
         <%= t "reviews.total_markers" %>
       </div>
-      <div class="col-md-9">
+      <div class="col-md-8">
         <b><%= @review.marked_reviews.count %></b>
         <i class="fa fa-bookmark"></i>
       </div>
     </div>
 
     <div class="form-group">
-      <div class="col-md-3">
+      <div class="col-md-4">
         <%= t "reviews.created" %>
       </div>
-      <div class="col-md-9">
+      <div class="col-md-8">
         <% if created_mins(@review.created_at) < 60 %>
           <b><%= created_mins @review.created_at %></b>&nbsp;
           <%= t "time.minutes" %>
@@ -39,7 +39,7 @@
         <% elsif created_days(@review.created_at) >= 30 %>
           <b><%= created_days @review.created_at %></b>&nbsp;
           <%= t "time.days" %>
-        <% elsif created_month(@review.created_at) < 12 %>
+        <% elsif created_months(@review.created_at) < 12 %>
           <b><%= created_months @review.created_at %></b>&nbsp;
           <%= t "time.months" %>
         <% else %>

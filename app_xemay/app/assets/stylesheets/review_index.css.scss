@@ -3,12 +3,12 @@
   width: 60%;
   float: left;
   margin-top: 20px;
-  margin-left: 15%;
+  margin-left: 9%;
 }
 
 #review-index {
   float: left;
-  margin-left: 9%;
+  margin-left: 2%;
   width: 60%;
 
   .store-map {
@@ -25,6 +25,11 @@
     box-sizing: border-box;
     border-radius: 4px 4px 0 0;
     display: block;
+
+    .fa-1x {
+      color: blue;
+      margin-top: 10px;
+    }
 
     .mark-review {
       margin-right: 0px;
