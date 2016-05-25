@@ -1,3 +1,22 @@
-<% @reviews.each do |review| %>
-  <h3><%= review.content %></h3>
-<% end %>
+<div id="create_post">
+  <% if current_user %>
+    <%= link_to new_admin_review_path do %>
+      <i class="glyphicon glyphicon-pencil"></i>
+      <%= t "reviews.new_review" %>
+    <% end %>
+  <% else %>
+    <%= link_to new_user_session_path do %>
+      <i class="glyphicon glyphicon-log-in"></i>
+      <%= t "reviews.become_active_member" %>
+    <% end %>
+  <% end %>
+</div>
+<div id="list-index-reviews">
+  <div id="review-index">
+    <%= render @reviews %>
+  </div>
+
+  <div id="top_ten_rate">
+    <%= render "top_rate" %>
+  </div>
+</div>

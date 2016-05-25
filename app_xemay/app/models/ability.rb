@@ -11,7 +11,7 @@ class Ability
       can :manage, Image
       can :manage, MarkedReview, user_id: user.id
       can :manage, Product
-      can :manage, Review, user_id: user.id
+      can :read, Review
       can :manage, Store
       can [:create, :read], User
       can [:update, :destroy], User, id: user.id

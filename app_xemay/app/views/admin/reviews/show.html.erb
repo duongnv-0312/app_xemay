@@ -1,0 +1,111 @@
+<%= javascript_include_tag 'ratyrate.js', "data-turbolinks-track" => false %>
+
+<div id="review-show">
+  <%= render "show_on_map" %>
+
+  <div class="row border-show">
+    <div class="form-group pull-right">
+      <div class="mark-review col-md-1" id="mark-review-<%= @review.id %>">
+        <% if current_user %>
+          <% unless @review.user == current_user %>
+            <% if current_user.markings? @review %>
+              <%= render partial: "unmark", locals: {review: @review} %>
+            <% else %>
+              <%= render partial: "mark", locals: {review: @review} %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="form-group group-show-content">
+      <div class="review-user col-md-1">
+        <div class="review-avatar">
+          <%= image_tag @user.avatar %>
+        </div>
+      </div>
+
+      <div class="col-md-11">
+        <div class="store-name">
+          <b><%= link_to @user.name, user_path(@user) %></b>
+          <% if current_user.present? && @user == current_user %>
+            <%= link_to @store.name, edit_review_path(@store.review) %>
+          <% else %>
+            <%= link_to @store.name, review_path(@store.review) %>
+          <% end %>
+        </div>
+
+        <div class="review-content">
+          <%= @review.content %>
+        </div>
+
+        <div id="jssor_1">
+          <div data-u="loading" class="loading">
+            <div class="loading-1"></div>
+            <div class="loading-2"></div>
+          </div>
+
+          <div data-u="slides" class="slides">
+            <%= render @images %>
+          </div>
+
+          <div data-u="navigator" class="jssorb05" data-autocenter="1">
+            <div data-u="prototype" class="prototype"></div>
+          </div>
+
+          <span data-u="arrowleft" class="jssora22l" data-autocenter="2">
+          </span>
+
+          <span data-u="arrowright" class="jssora22r" data-autocenter="2">
+          </span>
+        </div>
+
+        <script>
+          jssor_1_slider_init();
+        </script>
+
+        <div class="store-info">
+          <div class="col-md-5 pull-right">
+            <i class="fa fa-home fa-1x">
+            </i>
+            <%= @store.address %>
+          </div>
+
+          <div class="col-md-5 pull-right">
+            <i class="fa fa-phone-square fa-1x">
+            </i>
+            <%= @store.phone_number %>
+          </div>
+        </div>
+
+        <div class="rate-point">
+          <p id="show-marker-avg">
+            <%= image_tag "mid-star.png" %>
+            <b id="average_rating"><%= @average_rating.round 1 %></b>
+          </p>
+        </div>
+
+        <div class="rate-store">
+          <b><%= t "rate.rate_now" %></b><br>
+          <%= rating_for @store, "quality", enable_half: false, disable_after_rate: false, cancel: true,
+            cancel_hint: t("rate.cancel_hint"), star: 5, remote: true %>
+        </div><br>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= render "comments/form" %>
+    </div>
+
+    <hr>
+    <div id="comments" class="comments-block">
+      <% @review.comments.each do |comment| %>
+        <%= render "comments/comment", comment: comment %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="right-side-show">
+    <%= render "right_side_show" %>
+  </div>
+</div>

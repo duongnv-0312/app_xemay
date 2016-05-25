@@ -11,7 +11,9 @@
         <% if @user == current_user %>
           <div class="user-action">
             <%= link_to t("profile.edit"), edit_user_registration_path(@user) %>
-            <%= link_to t("profile.new_review"), new_review_path %>
+            <% if @user.is_admin? %>
+              <%= link_to t("profile.new_review"), new_admin_review_path %>
+            <% end %>
           </div>
         <% else %>
           <div class="user-action">

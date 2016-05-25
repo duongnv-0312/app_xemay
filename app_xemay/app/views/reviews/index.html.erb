@@ -1,8 +1,10 @@
 <div id="create_post">
   <% if current_user %>
-    <%= link_to new_review_path do %>
-      <i class="glyphicon glyphicon-pencil"></i>
-      <%= t "reviews.create_post" %>
+    <% if current_user.is_admin? %>
+      <%= link_to new_admin_review_path do %>
+        <i class="glyphicon glyphicon-pencil"></i>
+        <%= t "reviews.new_review" %>
+      <% end %>
     <% end %>
   <% else %>
     <%= link_to new_user_session_path do %>

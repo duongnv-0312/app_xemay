@@ -1,0 +1,49 @@
+<div class="row border-show">
+  <div class="form-group">
+    <div class="review-user col-md-1">
+      <p><%= link_to review.user.name, user_path(review.user) %></p>
+      <div class="review-avatar">
+        <%= link_to image_tag(review.user.avatar, lazy: true),
+          user_path(review.user) %>
+      </div>
+    </div>
+
+    <div class="col-md-10">
+      <div class="store-name">
+        <% unless review.store.nil? %>
+          <%= link_to review.store_name, review_path(review) %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="mark-review col-md-1" id="show-mark-review-<%= review.id %>">
+      <% if current_user %>
+        <% unless review.user == current_user %>
+          <% if current_user.markings? review %>
+            <%= render partial: "reviews/unmark", locals: {review: review} %>
+          <% else %>
+            <%= render partial: "reviews/mark", locals: {review: review} %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-md-10 review-content">
+      <%= review.content %>
+    </div>
+
+    <div class="col-md-4 pull-right">
+      <i class="fa fa-home fa-1x">
+      </i>
+      <%= review.store_address %>
+    </div>
+
+    <div class="col-md-4 pull-right">
+      <i class="fa fa-phone-square fa-1x">
+      </i>
+      <%= review.store_phone_number %>
+    </div>
+  </div>
+</div>
