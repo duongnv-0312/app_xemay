@@ -20,6 +20,10 @@ class ApplicationController < ActionController::Base
   end
 
   protected
+  def current_ability
+    @current_ability ||= Ability.new current_user
+  end
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) { |u|
       u.permit(:email, :password, :password_confirmation, :name) }
@@ -27,10 +31,6 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:account_update) { |u|
       u.permit(:avatar, :name, :password, :password_confirmation, :current_password)
     }
-  end
-
-  def current_ability
-    @current_ability ||= Ability.new current_user
   end
 
   def after_sign_in_path_for resource

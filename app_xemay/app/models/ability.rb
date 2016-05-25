@@ -7,12 +7,11 @@ class Ability
       can :manage, :all
     elsif user.is_normal_user?
       can :manage, Comment, user_id: user.id
-      can :manage, Coordinate
-      can :manage, Image
-      can :manage, MarkedReview, user_id: user.id
-      can :manage, Product
+      can :read, Coordinate
+      can :read, Image
+      can [:create, :destroy], MarkedReview, user_id: user.id
+      can :read, Product
       can :read, Review
-      can :manage, Store
       can [:create, :read], User
       can [:update, :destroy], User, id: user.id
       can :read, Region
