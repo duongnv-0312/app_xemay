@@ -6,7 +6,12 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :users
-    resources :reviews
+    resources :reviews do
+      resources :comments
+      collection do
+        match "search" => "reviews#search", via: [:get, :post], as: :search
+      end
+    end
   end
 
   resources :users do
@@ -14,7 +19,7 @@ Rails.application.routes.draw do
       get :markings
     end
   end
-  resources :reviews do
+  resources :reviews, only: [:show, :index] do
     resources :comments
     collection do
       match "search" => "reviews#search", via: [:get, :post], as: :search

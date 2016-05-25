@@ -1,7 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :reviews, :top_ten_rate, only: :index
-  before_action :find_review, only: [:show, :edit, :update]
-  load_and_authorize_resource :store, :coordinate, :product, except: [:index, :show]
+  before_action :find_review, only: :show
 
   def search
     index
@@ -26,43 +25,7 @@ class ReviewsController < ApplicationController
     @total_rater = @store.rates("quality") ? @store.rates("quality").count : 0
   end
 
-  def new
-    @review = Review.new
-    @store = @review.build_store
-    @store.images.build
-    @store.build_coordinate
-    @store.products.build
-  end
-
-  def create
-    @review = Review.new review_params
-    if @review.save
-      redirect_to reviews_path
-    else
-      render :new
-    end
-  end
-
-  def edit
-  end
-
-  def update
-    if @review.update review_params
-      redirect_to @review
-    else
-      render :edit
-    end
-  end
-
   private
-  def review_params
-    params.require(:review).permit :content, :user_id,
-      store_attributes: [:id, :name, :address, :phone_number, :owner, :review_id,
-        images_attributes: [:id, :image, :store_id],
-        coordinate_attributes: [:id, :lat, :lng, :store_id, :region_id],
-        products_attributes: [:id, :name, :price, :store_id]]
-  end
-
   def reviews
     @reviews = Review.all
   end
