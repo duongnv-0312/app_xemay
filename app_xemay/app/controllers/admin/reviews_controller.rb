@@ -1,7 +1,7 @@
 class Admin::ReviewsController < ApplicationController
   before_action :reviews, :top_ten_rate, only: :index
   before_action :find_review, only: [:show, :edit, :update]
-  load_and_authorize_resource :store, :coordinate, :product, except: [:index, :show]
+  load_and_authorize_resource :store, :coordinate, :product
 
   def search
     index
@@ -37,7 +37,7 @@ class Admin::ReviewsController < ApplicationController
   def create
     @review = Review.new review_params
     if @review.save
-      redirect_to reviews_path
+      redirect_to admin_reviews_path
     else
       render :new
     end
@@ -48,7 +48,7 @@ class Admin::ReviewsController < ApplicationController
 
   def update
     if @review.update review_params
-      redirect_to @review
+      redirect_to admin_review_path @review
     else
       render :edit
     end
