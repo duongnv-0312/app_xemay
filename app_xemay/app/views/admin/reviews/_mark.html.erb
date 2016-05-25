@@ -1,6 +1,0 @@
-<%= form_for current_user.marked_reviews.build, remote: true do |f| %>
-  <%= f.hidden_field :review_id, value: review.id %>
-  <button type="submit" class="btn btn-primary mark-now"  title="Mark it">
-    <i class="glyphicon glyphicon-bookmark"></i>
-  </button>
-<% end %>

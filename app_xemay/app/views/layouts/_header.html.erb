@@ -64,9 +64,16 @@
               <% end %>
             </li>
             <li class="dropdown">
-              <%= link_to reviews_path do %>
-                <i class="glyphicon glyphicon-th-list"></i>
-                <%= t "menu.all_posts" %>
+              <% if current_user && current_user.is_admin? %>
+                <%= link_to admin_reviews_path do %>
+                  <i class="glyphicon glyphicon-th-list"></i>
+                  <%= t "menu.all_posts" %>
+                <% end %>
+              <% else %>
+                <%= link_to reviews_path do %>
+                  <i class="glyphicon glyphicon-th-list"></i>
+                  <%= t "menu.all_posts" %>
+                <% end %>
               <% end %>
             </li>
           </ul>

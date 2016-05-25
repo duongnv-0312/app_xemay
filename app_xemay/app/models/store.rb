@@ -7,7 +7,6 @@ class Store < ActiveRecord::Base
 
   has_many :products, dependent: :destroy
   has_many :images, dependent: :destroy
-  has_many :ratings, dependent: :destroy
 
   validates :name, presence: true
 

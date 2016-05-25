@@ -28,11 +28,7 @@
       <div class="col-md-11">
         <div class="store-name">
           <b><%= link_to @user.name, user_path(@user) %></b>
-          <% if current_user.present? && @user == current_user %>
-            <%= link_to @store.name, edit_review_path(@store.review) %>
-          <% else %>
-            <%= link_to @store.name, review_path(@store.review) %>
-          <% end %>
+          <%= link_to @store.name, review_path(@store.review) %>
         </div>
 
         <div class="review-content">

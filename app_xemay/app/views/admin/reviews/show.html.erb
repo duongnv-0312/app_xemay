@@ -29,7 +29,7 @@
         <div class="store-name">
           <b><%= link_to @user.name, user_path(@user) %></b>
           <% if current_user.present? && @user == current_user %>
-            <%= link_to @store.name, edit_review_path(@store.review) %>
+            <%= link_to @store.name, edit_admin_review_path(@store.review) %>
           <% else %>
             <%= link_to @store.name, review_path(@store.review) %>
           <% end %>
