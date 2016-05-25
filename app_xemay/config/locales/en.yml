@@ -22,6 +22,8 @@
 en:
   comments:
     write_comment: "Write comment"
+  confirm:
+    are_you_sure: "Are you sure?"
   coordinates:
     latitude: "Latitude"
     longitude: "Longitude"
@@ -49,6 +51,7 @@ en:
     content: "Content"
     created: "Created at"
     details: "Details"
+    delete: "Delete"
     edit: "Edit review"
     new_review: "New review"
     products: "Products"

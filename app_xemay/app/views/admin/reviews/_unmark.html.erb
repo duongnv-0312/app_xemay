@@ -1,6 +1,0 @@
-<%= form_for(current_user.marked_reviews.find_by(review_id: review.id),
-            method: :delete, remote: true) do |f| %>
-  <button type="submit" class="btn btn-primary marked" title="Marked">
-    <i class="glyphicon glyphicon-bookmark"></i>
-  </button>
-<% end %>
