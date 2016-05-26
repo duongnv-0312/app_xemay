@@ -41,7 +41,7 @@ function add_fields(link, association, content) {
   $(link).parent().before(content.replace(regexp, new_id));
 }
 
-$(document).on("page:change page:load", function() {
+$(document).on("page:change", function() {
   $("#comment_content").keypress(function(event) {
     if(event.which == 13 && !event.shiftKey) {
       $(this).closest('form').submit();
