@@ -99,7 +99,7 @@
 
     <hr>
     <div id="comments" class="comments-block">
-      <% @review.comments.each do |comment| %>
+      <% @review.comments.reverse.each do |comment| %>
         <%= render "comments/comment", comment: comment %>
       <% end %>
     </div>
