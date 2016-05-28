@@ -1,4 +1,6 @@
 //= require search_box
+//= require search_gas_stations
+//= require search_atms
 
 var map;
 var currentPosition;
@@ -13,9 +15,6 @@ function index_maps() {
     zoom:13,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
-  var coordinates = $.parseJSON($("#map-index-reviews").attr("data-coordinates"));
-  var stores = $.parseJSON($("#map-index-reviews").attr("data-stores"));
-  var reviews = $.parseJSON($("#map-index-reviews").attr("data-reviews"));
 
   map = new google.maps.Map(document.getElementById("map-index-reviews"), options);
   infoGeolocation = new google.maps.InfoWindow({maxWidth: 200});
@@ -34,6 +33,28 @@ function searchByRadius() {
   radiusControlDiv.index = 1;
   map.controls[google.maps.ControlPosition.BOTTOM_RIGHT].push(radiusControlDiv);
 
+  var gasControlDiv = document.createElement("div");
+  gasControlDiv.index = 1;
+  map.controls[google.maps.ControlPosition.BOTTOM_RIGHT].push(gasControlDiv);
+  var gasControlButton =  document.createElement("button");
+  gasControlButton.id = "gasControlButton";
+  gasControlDiv.appendChild(gasControlButton);
+  var gasControlChild = document.createElement("div");
+  gasControlChild.id = "gasControlChild";
+  gasControlButton.title = "Gas Station";
+  gasControlButton.appendChild(gasControlChild);
+
+  var ATMControlDiv = document.createElement("div");
+  ATMControlDiv.index = 1;
+  map.controls[google.maps.ControlPosition.BOTTOM_RIGHT].push(ATMControlDiv);
+  var ATMControlButton = document.createElement("button");
+  ATMControlButton.id = "ATMControlButton";
+  ATMControlButton.title = "ATM";
+  ATMControlDiv.appendChild(ATMControlButton);
+  var ATMControlChild = document.createElement("div");
+  ATMControlChild.id = "ATMControlChild";
+  ATMControlButton.appendChild(ATMControlChild);
+
   google.maps.event.addListener(map, "click", function(e) {
     if(markersArray.length > 0) {
       clearMarkers();
@@ -47,6 +68,8 @@ function searchByRadius() {
     var lng = e.latLng.lng();
     var orgLocation = new google.maps.LatLng(lat, lng);
     var rad = 5000;
+    search_gas_stations(orgLocation, rad, gasControlButton);
+    search_atms(orgLocation, rad, ATMControlButton);
     drawCircle(orgLocation, rad);
 
     if(coordinates.length < 1) {
@@ -159,14 +182,11 @@ function geoMylocation(map, infoGeolocation) {
         icon: image,
         map: map
       };
-
       var centerControlDiv = document.createElement("div");
       var centerControl = new CenterControl(centerControlDiv, map, pos, posGeolocation);
 
       centerControlDiv.index = 1;
       map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(centerControlDiv);
-
-
     }, function() {
       handleLocationError(true, infoGeolocation, map.getCenter());
     });
