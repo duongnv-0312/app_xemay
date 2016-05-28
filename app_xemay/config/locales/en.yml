@@ -1,89 +1,69 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
   comments:
-    write_comment: "Write comment"
+    write_comment: "Viết bình luận"
   confirm:
     are_you_sure: "Are you sure?"
   coordinates:
-    latitude: "Latitude"
-    longitude: "Longitude"
+    latitude: "Vĩ độ"
+    longitude: "Kinh độ"
   images:
-    image: "Image"
+    image: "Ảnh"
     caption: "Caption"
   menu:
-    all_posts: "All Posts"
-    on_map: "On map"
+    all_posts: "Bài viết"
+    on_map: "Bản đồ"
   name_system: "Xe may"
   products:
-    name: "Name"
-    price: "Price"
+    name: "Tên sản phẩm"
+    price: "Giá"
   profile:
-    back: "Back"
+    back: "Quay lại"
     current_waiting: "Currently waiting confirmation for"
     cancel_account: "Cancel my account"
-    edit: "Edit"
-    home: "Home"
-    new_review: "New review"
-    unhappy: "Unhappy"
+    edit: "Sửa lại"
+    home: "Trang chủ"
+    new_review: "Tạo bài viết"
+    unhappy: "Không thích"
   reviews:
-    add_images: "Add images"
-    add_products: "Add products"
-    content: "Content"
-    created: "Created at"
-    details: "Details"
-    delete: "Delete"
-    edit: "Edit review"
-    new_review: "New review"
-    products: "Products"
-    top_rate: "Top Rate"
-    total_markers: "Total markers"
+    add_images: "Thêm ảnh"
+    add_products: "Thêm sản phẩm"
+    become_active_member: "Trở thành thành viên"
+    content: "Nội dung"
+    created: "Tạo lúc"
+    details: "Chi tiết"
+    delete: "Xóa"
+    edit: "Sửa bài viết"
+    new_review: "Tạo bài viết mới"
+    products: "Các sản phẩm"
+    top_rate: "Top điểm cao"
+    total_markers: "Số lượt đánh dấu"
   rate:
     attitude: "Attitude"
-    average_rating: "Average rating"
-    cancel_hint: "Cancel this rating!"
-    price: "Price"
-    rate_now: "Rate now"
+    average_rating: "Điểm trung bình"
+    cancel_hint: "Xóa đánh giá"
+    price: "Giá"
+    rate_now: "Đánh giá"
     specialize: "Specialize"
-    total_rater: "Total rater"
+    total_rater: "số người đánh giá"
   search:
-    review_holder: "Search any things"
+    review_holder: "Tìm kiếm cửa hàng"
   staticpages:
-    active_now: "Active Now"
-    create_account: "Create Account"
-    logout: "Log Out"
-    log_in: "Log In"
-    profile: "Profile"
+    active_now: "Trở thành thành viên"
+    create_account: "Tạo tài khoản"
+    logout: "Đăng xuất"
+    log_in: "Đăng nhập"
+    profile: "Hồ sơ"
   stores:
-    name: "Name"
-    address: "Address"
-    phone_number: "Phone_number"
-    owner: "Owner"
+    name: "Tên cửa hàng"
+    address: "Địa chỉ"
+    phone_number: "Số điện thoại"
+    owner: "Chủ cửa hàng"
   time:
-    ago: "ago"
-    minutes: "minutes"
-    hours: "hours"
-    day: "days"
-    months: "months"
-    years: "years"
+    ago: "trước"
+    minutes: "phút"
+    hours: "giờ"
+    day: "ngày"
+    months: "tháng"
+    years: "năm"
   title:
     yeu_xe: "Yeu xe may"

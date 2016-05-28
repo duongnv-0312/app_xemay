@@ -1,0 +1,89 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  comments:
+    write_comment: "Write comment"
+  confirm:
+    are_you_sure: "Are you sure?"
+  coordinates:
+    latitude: "Latitude"
+    longitude: "Longitude"
+  images:
+    image: "Image"
+    caption: "Caption"
+  menu:
+    all_posts: "All Posts"
+    on_map: "On map"
+  name_system: "Xe may"
+  products:
+    name: "Name"
+    price: "Price"
+  profile:
+    back: "Back"
+    current_waiting: "Currently waiting confirmation for"
+    cancel_account: "Cancel my account"
+    edit: "Edit"
+    home: "Home"
+    new_review: "New review"
+    unhappy: "Unhappy"
+  reviews:
+    add_images: "Add images"
+    add_products: "Add products"
+    content: "Content"
+    created: "Created at"
+    details: "Details"
+    delete: "Delete"
+    edit: "Edit review"
+    new_review: "New review"
+    products: "Products"
+    top_rate: "Top Rate"
+    total_markers: "Total markers"
+  rate:
+    attitude: "Attitude"
+    average_rating: "Average rating"
+    cancel_hint: "Cancel this rating!"
+    price: "Price"
+    rate_now: "Rate now"
+    specialize: "Specialize"
+    total_rater: "Total rater"
+  search:
+    review_holder: "Search any things"
+  staticpages:
+    active_now: "Active Now"
+    create_account: "Create Account"
+    logout: "Log Out"
+    log_in: "Log In"
+    profile: "Profile"
+  stores:
+    name: "Name"
+    address: "Address"
+    phone_number: "Phone_number"
+    owner: "Owner"
+  time:
+    ago: "ago"
+    minutes: "minutes"
+    hours: "hours"
+    day: "days"
+    months: "months"
+    years: "years"
+  title:
+    yeu_xe: "Yeu xe may"
