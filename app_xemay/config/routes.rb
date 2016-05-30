@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, path: "auth", path_names: {sign_in: "login", sign_out: "logout"}
   root "reviews#index"
   get "maps/index"
+  post "maps/index"
 
   namespace :admin do
     resources :users

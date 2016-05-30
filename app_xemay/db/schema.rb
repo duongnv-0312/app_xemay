@@ -139,6 +139,7 @@ ActiveRecord::Schema.define(version: 20160515164029) do
     t.string   "address",      limit: 255
     t.string   "phone_number", limit: 255
     t.string   "owner",        limit: 255
+    t.integer  "store_type",   limit: 4,   default: 0
     t.float    "avg_rating",   limit: 24,  default: 0.0
     t.integer  "total_rater",  limit: 4,   default: 0
     t.integer  "review_id",    limit: 4
