@@ -23,6 +23,10 @@ class ReviewsController < ApplicationController
 
     @average_rating = @store.average("quality") ? @store.average("quality").avg : 0
     @total_rater = @store.rates("quality") ? @store.rates("quality").count : 0
+
+    @store.avg_rating = @average_rating
+    @store.total_rater = @total_rater
+    @store.save
   end
 
   private
@@ -32,13 +36,5 @@ class ReviewsController < ApplicationController
 
   def find_review
     @review = Review.find params[:id]
-  end
-
-  def top_ten_rate
-    @top_ten_ratings = if Store.all.count > 10
-      Store.all.order("avg_rating ASC").order("created_at DESC").first 10
-    else
-      Store.all
-    end
   end
 end

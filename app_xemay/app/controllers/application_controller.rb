@@ -19,6 +19,14 @@ class ApplicationController < ActionController::Base
     {locale: I18n.locale}
   end
 
+  def top_ten_rate
+    @top_ten_ratings = if Store.all.count > 10
+      Store.all.order("avg_rating ASC").first 10
+    else
+      Store.all
+    end
+  end
+
   protected
   def current_ability
     @current_ability ||= Ability.new current_user

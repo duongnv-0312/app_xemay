@@ -1,13 +1,25 @@
 <% unless comment.content.nil? %>
   <div class="form-group comment-cell">
-    <div class="avatar-comment col-md-1">
-      <%= link_to image_tag(comment.user_avatar, title: comment.user_name),
-        user_path(comment.user) %>
-    </div>
-    <div class="content-comment col-md-11">
-      <b><%= link_to comment.user_name, user_path(comment.user) %></b>
-      <%= simple_format comment.content %>
-      <hr>
-    </div><br>
+    <% if comment.user.is_admin? %>
+      <div class="avatar-comment col-md-1">
+        <%= link_to image_tag(comment.user_avatar, title: comment.user_name),
+          admin_user_path(comment.user) %>
+      </div>
+      <div class="content-comment col-md-11">
+        <b><%= link_to comment.user_name, admin_user_path(comment.user) %></b>
+        <%= simple_format comment.content %>
+        <hr>
+      </div><br>
+    <% else %>
+      <div class="avatar-comment col-md-1">
+        <%= link_to image_tag(comment.user_avatar, title: comment.user_name),
+          user_path(comment.user) %>
+      </div>
+      <div class="content-comment col-md-11">
+        <b><%= link_to comment.user_name, user_path(comment.user) %></b>
+        <%= simple_format comment.content %>
+        <hr>
+      </div><br>
+    <% end %>
   </div>
 <% end %>
