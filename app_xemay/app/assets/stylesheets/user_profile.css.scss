@@ -34,3 +34,18 @@
     margin-left: 20px;
   }
 }
+
+#no_review_marked {
+  position: relative;
+  float: left;
+  width: 50%;
+  margin-top: 20px;
+  margin-left: 16%;
+  border: 1px solid #7c445d;
+  border-radius: 3px;
+
+  h2 {
+    color: #e05629;
+    text-align: center;
+  }
+}

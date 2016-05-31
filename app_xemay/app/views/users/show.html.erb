@@ -25,11 +25,15 @@
   </div>
 
   <div>
-    <% unless @reviews.empty? %>
+    <% if @reviews.present? %>
       <div id="list-index-reviews">
         <div id="review-index">
           <%= render @reviews %>
         </div>
+      </div>
+    <% else %>
+      <div id="no_review_marked">
+        <h2><%= t "reviews.no_review_marked" %></h2>
       </div>
     <% end %>
   </div>
