@@ -34,6 +34,7 @@ en:
     delete: "Xóa"
     edit: "Sửa bài viết"
     new_review: "Tạo bài viết mới"
+    no_review_marked: "chưa lưu bài viết nào"
     products: "Các sản phẩm"
     selects: "Select ---"
     store_type: "Loại cửa hàng"

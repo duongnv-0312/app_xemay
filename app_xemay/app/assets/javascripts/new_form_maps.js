@@ -13,6 +13,16 @@ function initialize() {
 
   map = new google.maps.Map(document.getElementById("new-map-canvas"), options);
 
+  if(document.getElementById("review_store_attributes_coordinate_attributes_lng").value !== "" &&
+    document.getElementById("review_store_attributes_coordinate_attributes_lat").value !== "") {
+
+    var lat = document.getElementById("review_store_attributes_coordinate_attributes_lat").value;
+    var lng = document.getElementById("review_store_attributes_coordinate_attributes_lng").value;
+    markerClick(map, lat, lng, markersArray);
+    var tmpPos = new google.maps.LatLng(lat, lng);
+    map.setCenter(tmpPos);
+  }
+
   google.maps.event.addListener(map, "click", function(e) {
     if(markersArray.length !== 0) {
       clearMarker(map, markersArray);
