@@ -2,10 +2,10 @@ class MapsController < ApplicationController
   before_action :reviews
 
   def index
-    @stores = if params[:store].present?
-      @stores.select{|store| store.store_type == params[:store].values.first}
-    else
-      @stores
+    if params[:store].present?
+      @stores = @stores.select{|store| store.store_type == params[:store].values.first}
+      @coordinates = @stores.map &:coordinate
+      @reviews = @stores.compact.map &:review
     end
   end
 

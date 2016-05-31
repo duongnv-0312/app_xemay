@@ -6,6 +6,10 @@
   placeholder: :phone_number %>
 <%= f.text_field :owner, class: "form-control",
   placeholder: t("stores.owner") %>
+<%= f.label :store_type %>
+<%= f.select :store_type, Store.store_types.keys
+    .map{|store_type| [store_type.titleize, store_type]},
+  {}, {class: "select_store_type"} %>
 
 <div>
   <%= f.fields_for :images do |build_image| %>
