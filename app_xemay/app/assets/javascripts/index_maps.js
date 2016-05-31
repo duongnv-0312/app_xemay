@@ -89,19 +89,21 @@ function searchByRadius() {
               '<a id="marker-store-name" href="/reviews/' + stores[i].review_id + '"">' +
                 stores[i].name  +
               '</a>' +
+              '<p>Loại cửa hàng: <b>' + stores[i].store_type.split('_').join(" ") + '</b></p>' +
               '<p id="marker-avg-rate">' +
                 '<img src="/assets/mid-star.png">' +
                 '<b>' + stores[i].avg_rating + '</b>' +
               '</p>' +
               '<p id="marker-phone-number">' +
-                '<b>DT</b> &nbsp;' +
+                '<b class="fa fa-phone-square fa-1x"></b> &nbsp;' +
                 '<i>' + stores[i].phone_number + '</i>' +
               '</p>' +
             '</div>';
 
           markersArray[i].setMap(map);
           infowindows [i] = new google.maps.InfoWindow({
-            maxWidth: 300,
+            maxWidth: 400,
+            overflowX: "hidden",
           });
 
           bindInfoWindow(markersArray[i], map, infowindows[i], markerContent);

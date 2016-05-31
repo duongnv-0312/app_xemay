@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users do
+  resources :users, only: [:show] do
     collection do
       get :markings
     end
