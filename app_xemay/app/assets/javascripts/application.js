@@ -74,3 +74,9 @@ $(document).on("page:change page:load", function(){
     return;
   }
 });
+
+$(document).on("page:change", function() {
+  $("#store_store_type").on("change", function() {
+    $(this).parent('form').submit();
+  });
+});

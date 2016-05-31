@@ -35,6 +35,8 @@ en:
     edit: "Sửa bài viết"
     new_review: "Tạo bài viết mới"
     products: "Các sản phẩm"
+    selects: "Select ---"
+    store_type: "Loại cửa hàng"
     top_rate: "Top điểm cao"
     total_markers: "Số lượt đánh dấu"
   rate:

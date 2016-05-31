@@ -1,3 +1,14 @@
+<div id="filter-store">
+  <div class="filter">
+    <%= form_for :store, remote: true do |f|  %>
+      <%= f.label :store_type, t("reviews.store_type") %>
+      <%= f.select :store_type, Store.store_types.keys
+          .map{|store_type| [store_type.titleize, store_type]},
+        prompt: t("reviews.selects") %>
+    <% end %>
+  </div>
+</div>
+
 <div id="inputWrapper">
   <input id="pac-input" class="controls" type="text"
     placeholder="Search Places">

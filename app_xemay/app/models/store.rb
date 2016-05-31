@@ -17,4 +17,6 @@ class Store < ActiveRecord::Base
   delegate :lat, :lng, to: :coordinate, prefix: true, allow_nil: true
 
   scope :top_ten_rate, ->{order("avg_rating ASC, created_at DESC").first(10)}
+
+  enum store_type: [:repair_store, :curing_agent]
 end
