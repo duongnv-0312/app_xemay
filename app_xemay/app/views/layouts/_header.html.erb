@@ -17,9 +17,15 @@
                   <span class="hidden-xs user-name"><%= current_user.name %></span>
                 </a>
                 <ul class="dropdown-menu">
-                  <li>
-                    <%= link_to t("staticpages.profile"), user_path(current_user) %>
-                  </li>
+                  <% if current_user.is_admin? %>
+                    <li>
+                      <%= link_to t("staticpages.profile"), admin_user_path(current_user) %>
+                    </li>
+                  <% else %>
+                    <li>
+                      <%= link_to t("staticpages.profile"), user_path(current_user) %>
+                    </li>
+                  <% end %>
                   <li>
                     <%= link_to t("staticpages.logout"), destroy_user_session_path,
                         method: :delete %>

@@ -1,11 +1,13 @@
 class Admin::UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :top_ten_rate, only: :show
   load_and_authorize_resource
 
   def index
   end
 
   def show
+    @reviews = @user.reviews
   end
 
   def new

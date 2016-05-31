@@ -79,7 +79,7 @@ class Admin::ReviewsController < ApplicationController
 
   def top_ten_rate
     @top_ten_ratings = if Store.all.count > 10
-      Store.all.order("avg_rating ASC").order("created_at DESC").first 10
+      Store.all.order("avg_rating ASC").reverse.first 10
     else
       Store.all
     end

@@ -1,10 +1,10 @@
 <div class="row border-show">
   <div class="form-group">
     <div class="review-user col-md-1">
-      <p><%= link_to review.user.name, user_path(review.user) %></p>
+      <p><%= link_to review.user.name, admin_user_path(review.user) %></p>
       <div class="review-avatar">
         <%= link_to image_tag(review.user.avatar, lazy: true),
-          user_path(review.user) %>
+          admin_user_path(review.user) %>
       </div>
     </div>
 
@@ -51,5 +51,12 @@
       </i>
       <%= review.store_phone_number %>
     </div>
+  </div>
+
+  <div class="rate-point">
+    <p id="show-marker-avg">
+      <%= image_tag "mid-star.png" %>
+      <b id="average_rating"><%= review.store_avg_rating.round 1 %></b>
+    </p>
   </div>
 </div>
